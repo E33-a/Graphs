@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8uhrqcgye7qv"]
+
+[ext_resource type="Script" path="res://Scripts/hello_world.gd" id="1_uby35"]
+[ext_resource type="Texture2D" uid="uid://btg3uuix4w1yi" path="res://icon.svg" id="2_16i65"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uby35")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(635, 325)
+texture = ExtResource("2_16i65")

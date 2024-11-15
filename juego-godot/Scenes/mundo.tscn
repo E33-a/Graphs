@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3v50jmkjko67"]
+
+[ext_resource type="PackedScene" uid="uid://c7jjs3b6jhx1b" path="res://Scenes/player.tscn" id="1_pypo7"]
+[ext_resource type="PackedScene" uid="uid://cp4xn7g6wxyjv" path="res://Scenes/spike.tscn" id="3_kg8nb"]
+[ext_resource type="Script" path="res://Scripts/enemiesSpawn.gd" id="3_naw13"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" type="Node" parent="."]
+
+[node name="player" parent="Player" instance=ExtResource("1_pypo7")]
+position = Vector2(321, 323)
+
+[node name="Spike" type="Node" parent="."]
+
+[node name="spike" parent="Spike" instance=ExtResource("3_kg8nb")]
+position = Vector2(-456, 257)
+
+[node name="spike2" parent="Spike" instance=ExtResource("3_kg8nb")]
+position = Vector2(719, 237)
+
+[node name="Enemies" type="Node" parent="."]
+script = ExtResource("3_naw13")
+
+[node name="spawn1" type="Node2D" parent="Enemies"]
+position = Vector2(1120, 36)
+
+[node name="Timer" type="Timer" parent="Enemies"]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Enemies/Timer" to="Enemies" method="_on_timer_timeout"]
