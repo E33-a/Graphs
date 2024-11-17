@@ -3,6 +3,8 @@ extends CharacterBody2D
 const SPEED = 70.0
 const JUMP_VELOCITY = -400.0
 
+@onready var animations = $AnimatedSprite2D
+
 var vida:int = 10
 var player = null
 var damage:int = 2
@@ -32,9 +34,10 @@ func dead() -> void:
 		queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	canMove = false
+	canMove = true #se puede mover?
 	var cont:int = 0
 	if body.name == "player":
+		animations.play("attack")
 		playerCol = true
 		attack(body, damage)
 	else:
@@ -48,5 +51,6 @@ func _on_timer_timeout() -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "player":
+		animations.play("run")
 		canMove = true
 		playerCol = false

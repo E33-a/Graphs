@@ -20,9 +20,9 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		
 		velocity.y = JUMP_VELOCITY
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+
 	var directionX = Input.get_axis("ui_left", "ui_right")
 	var directionY = Input.get_axis("ui_up", "ui_down")
 	if directionX:
@@ -30,8 +30,10 @@ func _physics_process(delta: float) -> void:
 		animations.play("run")
 		if directionX > 0:
 			animations.flip_h = false
-		else:
+		elif directionX < 0:
 			animations.flip_h = true
+		else:
+			animations.play("idle")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	if directionY:
@@ -46,6 +48,7 @@ func _physics_process(delta: float) -> void:
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
+		animations.play("attack")
 		if enemy != null:
 			Attack(enemy, damage)
 			if enemy.vida <= 0:
