@@ -1,11 +1,12 @@
-[gd_scene load_steps=49 format=3 uid="uid://c7jjs3b6jhx1b"]
+[gd_scene load_steps=50 format=3 uid="uid://c7jjs3b6jhx1b"]
 
-[ext_resource type="Script" path="res://Scripts/player1.gd" id="1_b4spr"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_b4spr"]
 [ext_resource type="Texture2D" uid="uid://cxb5juruagn8j" path="res://Characters/Allies/Eirion/Attacks.png" id="2_4qxxy"]
 [ext_resource type="Texture2D" uid="uid://dx0v8oyv68vab" path="res://Characters/Allies/Eirion/Death.png" id="3_xy2s3"]
 [ext_resource type="Texture2D" uid="uid://b41gjnknsodb" path="res://Characters/Allies/Eirion/Hurt.png" id="4_y04a5"]
 [ext_resource type="Texture2D" uid="uid://cj3lbexo4nlvx" path="res://Characters/Allies/Eirion/Idle.png" id="5_sd7r2"]
 [ext_resource type="Texture2D" uid="uid://bb4wbh25t7gjm" path="res://Characters/Allies/Eirion/Run.png" id="6_52s8t"]
+[ext_resource type="Script" path="res://Scenes/player_control.gd" id="7_td5br"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mg8gg"]
 atlas = ExtResource("2_4qxxy")
@@ -192,7 +193,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
-"speed": 8.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -220,7 +221,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_fqr6e")
 }],
 "loop": true,
-"name": &"attack2",
+"name": &"attack1",
 "speed": 8.0
 }, {
 "frames": [{
@@ -238,7 +239,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"death",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -317,17 +318,17 @@ animations = [{
 size = Vector2(44.5, 97)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v2m66"]
-radius = 49.8197
+radius = 51.6236
 
-[node name="player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 position = Vector2(-3, -54)
 script = ExtResource("1_b4spr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_knyke")
-animation = &"run"
-frame_progress = 0.589265
+animation = &"death"
+frame_progress = 0.933513
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8.75, 19)
@@ -349,6 +350,9 @@ offset_left = -19.0
 offset_top = -92.0
 offset_right = 21.0
 offset_bottom = -69.0
+
+[node name="PlayerControl" type="Node" parent="."]
+script = ExtResource("7_td5br")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

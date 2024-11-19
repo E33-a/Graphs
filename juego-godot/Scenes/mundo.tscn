@@ -1,7 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://b3v50jmkjko67"]
+[gd_scene load_steps=20 format=3 uid="uid://b3v50jmkjko67"]
 
 [ext_resource type="PackedScene" uid="uid://c7jjs3b6jhx1b" path="res://Scenes/player.tscn" id="1_pypo7"]
-[ext_resource type="PackedScene" uid="uid://cp4xn7g6wxyjv" path="res://Scenes/spike.tscn" id="3_kg8nb"]
 [ext_resource type="Script" path="res://Scripts/enemiesSpawn.gd" id="3_naw13"]
 [ext_resource type="Texture2D" uid="uid://cutiq1t4ptatg" path="res://Art/Textures/Tiles.png" id="4_0aa0l"]
 [ext_resource type="Texture2D" uid="uid://qvfbu71dp65w" path="res://Art/Textures/Trees.png" id="5_8ut0a"]
@@ -1447,14 +1446,6 @@ sources/8 = SubResource("TileSetAtlasSource_e8gdn")
 [node name="player" parent="Player" instance=ExtResource("1_pypo7")]
 position = Vector2(321, 323)
 
-[node name="Spike" type="Node" parent="."]
-
-[node name="spike" parent="Spike" instance=ExtResource("3_kg8nb")]
-position = Vector2(-456, 257)
-
-[node name="spike2" parent="Spike" instance=ExtResource("3_kg8nb")]
-position = Vector2(719, 237)
-
 [node name="Enemies" type="Node" parent="."]
 script = ExtResource("3_naw13")
 
@@ -1462,7 +1453,7 @@ script = ExtResource("3_naw13")
 position = Vector2(1120, 36)
 
 [node name="Timer" type="Timer" parent="Enemies"]
-wait_time = 5.0
+wait_time = 3.0
 autostart = true
 
 [node name="TileMap" type="TileMap" parent="."]

@@ -7,7 +7,7 @@
 size = Vector2(53, 84)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wglio"]
-radius = 43.0116
+radius = 52.0096
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_igfrg"]
 atlas = ExtResource("2_nlylb")
@@ -374,7 +374,7 @@ position = Vector2(4, -2)
 scale = Vector2(2.625, 2.5625)
 sprite_frames = SubResource("SpriteFrames_lxf1b")
 animation = &"idle"
-frame_progress = 0.816727
+frame_progress = 0.678494
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

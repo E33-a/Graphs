@@ -34,7 +34,7 @@ func dead() -> void:
 		queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	canMove = true #se puede mover?
+	canMove = false #se puede mover?
 	var cont:int = 0
 	if body.name == "player":
 		animations.play("attack")

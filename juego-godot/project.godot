@@ -22,6 +22,7 @@ project/assembly_name="Curso nuevo Godot"
 
 folder_colors={
 "res://Art/": "purple",
+"res://Characters/": "green",
 "res://Scenes/": "red",
 "res://Scripts/": "yellow"
 }
