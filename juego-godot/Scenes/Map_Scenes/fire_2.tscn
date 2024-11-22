@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://clc7yemt30grv"]
+
+[ext_resource type="Texture2D" uid="uid://bla8jm438dsyt" path="res://Map/goblet3flameani-sheet.png" id="1_1x4el"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3bpw"]
+atlas = ExtResource("1_1x4el")
+region = Rect2(0, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ka4h"]
+atlas = ExtResource("1_1x4el")
+region = Rect2(13, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpk81"]
+atlas = ExtResource("1_1x4el")
+region = Rect2(26, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mom7r"]
+atlas = ExtResource("1_1x4el")
+region = Rect2(39, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3m3vd"]
+atlas = ExtResource("1_1x4el")
+region = Rect2(52, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymkb4"]
+atlas = ExtResource("1_1x4el")
+region = Rect2(65, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xkq0"]
+atlas = ExtResource("1_1x4el")
+region = Rect2(78, 0, 13, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kfw4l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3bpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ka4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpk81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mom7r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3m3vd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymkb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xkq0")
+}],
+"loop": true,
+"name": &"fire2",
+"speed": 5.0
+}]
+
+[node name="fire2" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_kfw4l")
+animation = &"fire2"

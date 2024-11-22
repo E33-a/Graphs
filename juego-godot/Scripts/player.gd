@@ -14,12 +14,10 @@ var enemy = null
 
 func _ready() -> void:
 	print(vida)
-	
-func _physics_process(delta: float) -> void:
-	velocity.normalized()
-	#move_and_slide()
-
+func _process(delta: float) -> void:
 	label.text = str(vida)
+func _physics_process(delta: float) -> void:
+	velocity.normalized()    
 	GameOver()
 	
 func _input(event: InputEvent) -> void:

@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_a286a"]
 [ext_resource type="Texture2D" uid="uid://b5ik6hxmscgvl" path="res://Characters/Enemies/Skeleton enemy/Skeleton enemy.png" id="2_nlylb"]
+[ext_resource type="Script" path="res://Scenes/enemy_control.gd" id="3_lplu7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qvki"]
-size = Vector2(53, 84)
+size = Vector2(19, 27)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wglio"]
-radius = 52.0096
+radius = 17.7169
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_igfrg"]
 atlas = ExtResource("2_nlylb")
@@ -108,10 +109,6 @@ region = Rect2(640, 64, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fbtww"]
 atlas = ExtResource("2_nlylb")
 region = Rect2(704, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l434g"]
-atlas = ExtResource("2_nlylb")
-region = Rect2(768, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xnybh"]
 atlas = ExtResource("2_nlylb")
@@ -233,7 +230,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
-"speed": 7.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -271,13 +268,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fbtww")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l434g")
 }],
 "loop": true,
 "name": &"death",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -352,29 +346,32 @@ animations = [{
 "speed": 3.0
 }]
 
-[node name="enemy" type="CharacterBody2D" groups=["enemies"]]
+[node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_a286a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.5, 1)
+position = Vector2(-1.5, 3.5)
 shape = SubResource("RectangleShape2D_1qvki")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-1, 0)
+position = Vector2(5, 0)
+scale = Vector2(1.5, 1.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(3, 0)
+position = Vector2(-1, -4)
 shape = SubResource("CircleShape2D_wglio")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(4, -2)
-scale = Vector2(2.625, 2.5625)
+scale = Vector2(1.2, 1.173)
 sprite_frames = SubResource("SpriteFrames_lxf1b")
-animation = &"idle"
-frame_progress = 0.678494
+animation = &"attack"
+frame_progress = 0.898523
+
+[node name="EnemyControl" type="Node" parent="."]
+script = ExtResource("3_lplu7")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

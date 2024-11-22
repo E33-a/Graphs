@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://c7jjs3b6jhx1b"]
+[gd_scene load_steps=51 format=3 uid="uid://c7jjs3b6jhx1b"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_b4spr"]
 [ext_resource type="Texture2D" uid="uid://cxb5juruagn8j" path="res://Characters/Allies/Eirion/Attacks.png" id="2_4qxxy"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b41gjnknsodb" path="res://Characters/Allies/Eirion/Hurt.png" id="4_y04a5"]
 [ext_resource type="Texture2D" uid="uid://cj3lbexo4nlvx" path="res://Characters/Allies/Eirion/Idle.png" id="5_sd7r2"]
 [ext_resource type="Texture2D" uid="uid://bb4wbh25t7gjm" path="res://Characters/Allies/Eirion/Run.png" id="6_52s8t"]
-[ext_resource type="Script" path="res://Scenes/player_control.gd" id="7_td5br"]
+[ext_resource type="Script" path="res://Scripts/player_control.gd" id="7_td5br"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mg8gg"]
 atlas = ExtResource("2_4qxxy")
@@ -193,7 +193,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
-"speed": 7.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -315,41 +315,48 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_op1j8"]
-size = Vector2(44.5, 97)
+size = Vector2(16, 28)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v2m66"]
-radius = 51.6236
+radius = 30.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_y6xtd"]
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(-3, -54)
 script = ExtResource("1_b4spr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2, 2)
+position = Vector2(0, 44)
 sprite_frames = SubResource("SpriteFrames_knyke")
-animation = &"death"
-frame_progress = 0.933513
+animation = &"idle"
+frame_progress = 0.616388
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8.75, 19)
+position = Vector2(2, 54)
 shape = SubResource("RectangleShape2D_op1j8")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(5, 20)
+position = Vector2(14, 53)
 shape = SubResource("CircleShape2D_v2m66")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(3, 55)
 
 [node name="Label1" type="Label" parent="."]
-offset_left = -19.0
-offset_top = -92.0
-offset_right = 21.0
-offset_bottom = -69.0
+offset_left = -16.0
+offset_top = 5.0
+offset_right = 23.0
+offset_bottom = 28.0
+size_flags_vertical = 1
+text = "
+"
+label_settings = SubResource("LabelSettings_y6xtd")
 
 [node name="PlayerControl" type="Node" parent="."]
 script = ExtResource("7_td5br")
