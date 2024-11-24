@@ -21,7 +21,6 @@ func _physics_process(delta: float) -> void:
 		
 	match current_state:
 		STATE.IDLE:
-			print("Enemy Estado: IDLE")
 			enemy.velocity = Vector2.ZERO
 			enemy.animations.play("idle")
 			
@@ -35,7 +34,6 @@ func _physics_process(delta: float) -> void:
 			elif enemy.playerCol and enemy.delta_life < enemy.vida:
 				current_state = STATE.HURT
 		STATE.RUN:
-			print("Enemy Estado: RUN")
 			if enemy.player != null:
 				direction = enemy.global_position.direction_to(enemy.player.global_position)
 				distance = enemy.global_position.distance_to(enemy.player.global_position)
@@ -60,9 +58,7 @@ func _physics_process(delta: float) -> void:
 				current_state = STATE.HURT
 			elif enemy.vida <= 0:
 				current_state = STATE.DEATH
-		STATE.ATTACK:
-			print("Enemy Estado: ATTACK")                         
-			
+		STATE.ATTACK:                       			
 			enemy.animations.play("attack")
 			if enemy.player != null and enemy.canAttack:  
 				enemy.attack(enemy.player, enemy.damage) 
@@ -75,7 +71,6 @@ func _physics_process(delta: float) -> void:
 			elif enemy.player.vida <= 0:
 				current_state = STATE.IDLE
 		STATE.HURT:
-			print("Enemy Estado: HURT")
 			enemy.animations.play("hurt")
 			
 			if enemy.player.vida <= 0:
@@ -87,12 +82,11 @@ func _physics_process(delta: float) -> void:
 			elif enemy.playerCol:
 				current_state = STATE.ATTACK
 		STATE.DEATH:
-			print("Enemy Estado: DEATH")
 			enemy.animations.play("death")
 			# Esperar la duración de la animación en seg
 			await get_tree().create_timer(2.0).timeout #el timer recibe la cantidad de segundos
 			print("Enemy is dead")
 			enemy.queue_free()
-			
+	prints(current_state)  
 	# Aplicar movimiento
 	

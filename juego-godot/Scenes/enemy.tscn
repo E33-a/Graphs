@@ -4,11 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://b5ik6hxmscgvl" path="res://Characters/Enemies/Skeleton enemy/Skeleton enemy.png" id="2_nlylb"]
 [ext_resource type="Script" path="res://Scenes/enemy_control.gd" id="3_lplu7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qvki"]
-size = Vector2(19, 27)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5hmb5"]
+radius = 13.5
+height = 35.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wglio"]
-radius = 17.7169
+radius = 19.7118
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_igfrg"]
 atlas = ExtResource("2_nlylb")
@@ -350,15 +351,15 @@ animations = [{
 script = ExtResource("1_a286a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 3.5)
-shape = SubResource("RectangleShape2D_1qvki")
+position = Vector2(-1.5, 0.5)
+shape = SubResource("CapsuleShape2D_5hmb5")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(5, 0)
 scale = Vector2(1.5, 1.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, -4)
+position = Vector2(-5, 5.96046e-08)
 shape = SubResource("CircleShape2D_wglio")
 
 [node name="Timer" type="Timer" parent="."]
@@ -368,7 +369,7 @@ wait_time = 2.0
 scale = Vector2(1.2, 1.173)
 sprite_frames = SubResource("SpriteFrames_lxf1b")
 animation = &"attack"
-frame_progress = 0.898523
+frame_progress = 0.699813
 
 [node name="EnemyControl" type="Node" parent="."]
 script = ExtResource("3_lplu7")

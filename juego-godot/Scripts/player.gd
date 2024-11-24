@@ -5,12 +5,15 @@ extends CharacterBody2D
 @onready var animations = $AnimatedSprite2D
 
 const SPEED = 250.0
-
-var vida:int = 20
+#important values
+var vida:int = 200
 var damage:int = 4
+
 var canAttack:bool = true
+var attack_s:bool = true
 var enemyCol:bool = false
 var enemy = null
+var cont:int = 0
 
 func _ready() -> void:
 	print(vida)
@@ -20,14 +23,15 @@ func _physics_process(delta: float) -> void:
 	velocity.normalized()    
 	GameOver()
 	
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		#animations.play("attack")
-		if enemy != null:
-			Attack(enemy, damage)
-			if enemy.vida <= 0:
-				vida += 10      
-				   
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("ui_accept"):
+		#if enemy != null:
+			##Attack(enemy, damage)
+			#if enemy.vida <= 0:
+				##vida += 10 
+				#cont += 1
+				#print("Contador enemigos: ", cont)     
+				   #
   
 func GameOver() -> void:
 	if vida <= 0:
@@ -51,6 +55,16 @@ func Attack(enemy, damage) -> void:
 		enemy.vida -= damage
 		$Timer.start()
 		canAttack = false
+		
+func Attack_special(enemy, damage) -> void:
+	if attack_s:
+		enemy.vida -= damage
+		$Timer2.start()
+		attack_s = false
 
 func _on_timer_timeout() -> void:
 	canAttack = true
+
+
+func _on_timer_2_timeout() -> void:
+	attack_s = true
