@@ -22,14 +22,16 @@ project/assembly_name="Curso nuevo Godot"
 folder_colors={
 "res://Art/": "purple",
 "res://Characters/": "green",
+"res://Fonts/": "pink",
+"res://Maps_shaders/": "blue",
+"res://Maps_tres/": "teal",
+"res://Resources/": "gray",
 "res://Scenes/": "red",
-"res://Scripts/": "yellow",
-"res://StateMachine/": "blue"
+"res://Scripts/": "yellow"
 }
 
 [global_group]
 
-spike=""
 enemies=""
 
 [input]

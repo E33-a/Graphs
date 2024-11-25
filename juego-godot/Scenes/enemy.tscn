@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_a286a"]
 [ext_resource type="Texture2D" uid="uid://b5ik6hxmscgvl" path="res://Characters/Enemies/Skeleton enemy/Skeleton enemy.png" id="2_nlylb"]
-[ext_resource type="Script" path="res://Scenes/enemy_control.gd" id="3_lplu7"]
+[ext_resource type="Script" path="res://Scripts/enemy_control.gd" id="3_lplu7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5hmb5"]
 radius = 13.5
@@ -348,6 +348,7 @@ animations = [{
 }]
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
+scale = Vector2(0.8, 0.8)
 script = ExtResource("1_a286a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -368,8 +369,8 @@ wait_time = 2.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.2, 1.173)
 sprite_frames = SubResource("SpriteFrames_lxf1b")
-animation = &"attack"
-frame_progress = 0.699813
+animation = &"run"
+frame_progress = 0.747653
 
 [node name="EnemyControl" type="Node" parent="."]
 script = ExtResource("3_lplu7")

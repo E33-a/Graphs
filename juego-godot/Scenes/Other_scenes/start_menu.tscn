@@ -1,0 +1,157 @@
+[gd_scene load_steps=18 format=3 uid="uid://byn1fkvf04p78"]
+
+[ext_resource type="Texture2D" uid="uid://b0v6ruek68vg0" path="res://Art/castillo epico.png" id="1_ut6sp"]
+[ext_resource type="Script" path="res://Scripts/start_menu.gd" id="1_wuuwf"]
+[ext_resource type="AudioStream" uid="uid://c2rcdo0epd4ho" path="res://Resources/Sounds/Ambient 2.mp3" id="3_2bwel"]
+[ext_resource type="AudioStream" uid="uid://cdow2sg32nws1" path="res://Resources/Sounds/select_button.wav" id="4_71qbv"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6i078"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_3fqkg"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.489865, 1), 0.0, 0.0, 0, 0, Vector2(0.787162, 0.61921), 0.0, 0.0, 0, 0, Vector2(0.966216, 0.194142), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_ixh86"]
+curve = SubResource("Curve_3fqkg")
+
+[sub_resource type="Gradient" id="Gradient_7po35"]
+colors = PackedColorArray(1, 1, 1, 0.156863, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hlcgm"]
+gradient = SubResource("Gradient_7po35")
+
+[sub_resource type="Curve" id="Curve_5p27r"]
+max_value = 3.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_l1kyv"]
+max_value = 30.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.114865, 7.41826), 69.9001, 69.9001, 0, 0, Vector2(0.290541, 13.5286), 0.0, 0.0, 0, 0, Vector2(1, 14.0599), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_jg6cb"]
+max_value = 3.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_hq0u1"]
+curve_x = SubResource("Curve_5p27r")
+curve_y = SubResource("Curve_l1kyv")
+curve_z = SubResource("Curve_jg6cb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rm1ce"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -150, 0)
+emission_shape = 3
+emission_box_extents = Vector3(790, 370, 700)
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+inherit_velocity_ratio = 1.0
+initial_velocity_min = 81.33
+initial_velocity_max = 81.33
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = -2.23517e-05
+gravity = Vector3(0, 1000, 0)
+radial_accel_min = 69.28
+radial_accel_max = 69.28
+scale_min = 0.0
+scale_max = 0.8
+scale_over_velocity_curve = SubResource("CurveXYZTexture_hq0u1")
+color = Color(0.843184, 0.843184, 0.843184, 1)
+color_initial_ramp = SubResource("GradientTexture1D_hlcgm")
+alpha_curve = SubResource("CurveTexture_ixh86")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1uv0"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfky4"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yr6p8"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Start_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wuuwf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.352941)
+
+[node name="rain" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_6i078")
+position = Vector2(555, 405)
+scale = Vector2(0.8, 0.8)
+amount = 29000
+process_material = SubResource("ParticleProcessMaterial_rm1ce")
+lifetime = 0.5
+preprocess = 0.5
+visibility_rect = Rect2(-350, -200, 700, 400)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ut6sp")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -153.5
+offset_right = 240.0
+offset_bottom = 153.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="btn_play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_d1uv0")
+text = "JUGAR"
+
+[node name="btn_options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_mfky4")
+text = "OPCIONES"
+
+[node name="btn_exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_yr6p8")
+text = "SALIR"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2bwel")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_71qbv")
+volume_db = -5.0
+
+[connection signal="pressed" from="VBoxContainer/btn_play" to="." method="_on_btn_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/btn_options" to="." method="_on_btn_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/btn_exit" to="." method="_on_btn_exit_pressed"]

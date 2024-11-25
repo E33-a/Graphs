@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://b3v50jmkjko67"]
 
-[ext_resource type="PackedScene" uid="uid://c7jjs3b6jhx1b" path="res://Scenes/player.tscn" id="1_mejl3"]
+[ext_resource type="PackedScene" uid="uid://c7jjs3b6jhx1b" path="res://Scenes/eirion.tscn" id="1_mejl3"]
 [ext_resource type="Script" path="res://Scripts/enemiesSpawn.gd" id="2_h4x10"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Characters" type="Node2D"]
 position = Vector2(123, 165)
 
 [node name="Player" type="Node" parent="."]

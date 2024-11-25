@@ -1,10 +1,8 @@
-class_name Enemy_base
-extends CharacterBody2D
-
-const SPEED = 80.0
+class_name Enemy_base extends CharacterBody2D
 
 @onready var animations = $AnimatedSprite2D
 
+var SPEED = 80.0
 var vida:int = 10
 var delta_life:int = 0
 var player = null
@@ -14,7 +12,8 @@ var canMove:bool = true
 var canAttack:bool = true
 
 func _ready() -> void:
-	player = get_node("/root/Map01/Node2D/Player/player")
+	player = get_node("/root/Map01/Characters/Player/player")
+	
 
 func attack(player: CharacterBody2D, damage:int) -> void:
 	if player.vida > 0:
@@ -24,26 +23,18 @@ func attack(player: CharacterBody2D, damage:int) -> void:
 	else:
 		return
 
-
 func _on_timer_timeout() -> void:
 	canAttack = true
-	#if playerCol and canAttack:
-		#attack(player, damage)
-	#else:
-		#return
 
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	canMove = false #se puede mover?
+func _on_area_2d_body_entered(body:Node2D) -> void:
 	if body.name == "player":
+		canMove = false #se puede mover?
 		playerCol = true
-		#attack(body, damage)
 	else:
 		playerCol = false
 		return
 
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_area_2d_body_exited(body:Node2D) -> void:
 	if body.name == "player":
 		canMove = true
 		playerCol = false

@@ -19,7 +19,9 @@ func is_moving() -> bool:
 func is_attack_basic() -> bool:
 	return Input.is_action_just_pressed("attack_basic") and not Input.is_action_pressed("attack_special") and not is_moving() and player.canAttack
 func is_attack_special() -> bool:
-	return Input.is_action_pressed("attack_special") and not Input.is_action_just_pressed("attack_basic") and not is_moving() and player.attack_s
+	return Input.is_action_just_pressed("attack_special") and not Input.is_action_just_pressed("attack_basic") and not is_moving() and player.attack_s
+func is_hurt() -> bool:
+	return player.enemyCol and not Input.is_action_pressed("attack_basic") and not Input.is_action_pressed("attack_special")
 func moving(directionX, directionY) -> void:
 	if directionX:
 		player.velocity.x = directionX * player.SPEED
@@ -36,6 +38,10 @@ func moving(directionX, directionY) -> void:
 #endregion
 
 func _physics_process(delta: float) -> void:
+	player.label.text = str(player.vida)
+	player.position.x = clamp(player.position.x, player.mn_X, player.mx_X)
+	player.position.y = clamp(player.position.y, player.mn_Y, player.mx_Y - player.diference)
+	
 	var directionX = Input.get_axis("move_left", "move_right")
 	var directionY = Input.get_axis("move_up", "move_down")
 			
@@ -52,7 +58,7 @@ func _physics_process(delta: float) -> void:
 				current_state = STATE.ATTACK_SPECIAL
 			elif player.vida <= 0:
 				current_state = STATE.DEATH
-			elif player.enemyCol and not Input.is_action_pressed("attack_basic") and not Input.is_action_pressed("attack_special"):
+			elif is_hurt():
 				current_state = STATE.HURT
 		STATE.RUN:
 			print("Estado: RUN")
@@ -66,7 +72,7 @@ func _physics_process(delta: float) -> void:
 				current_state = STATE.ATTACK
 			elif is_attack_special():
 				current_state = STATE.ATTACK_SPECIAL
-			#elif player.enemyCol:
+			#elif is_hurt():
 				#current_state = STATE.HURT
 			elif player.vida <= 0:
 				current_state = STATE.DEATH

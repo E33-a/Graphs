@@ -1,42 +1,36 @@
-class_name Player
-extends CharacterBody2D 
+class_name Player extends CharacterBody2D
 
 @onready var label:Label = $Label1
-@onready var animations = $AnimatedSprite2D
+@onready var animations:AnimatedSprite2D = $AnimatedSprite2D
+@onready var camera:Camera2D = $Camera2D
 
-const SPEED = 250.0
-#important values
+#maximos y minimos del mapa
+@onready var mn_X:int = self.owner.owner.min_x
+@onready var mn_Y:int = self.owner.owner.min_y
+@onready var mx_X:int = self.owner.owner.max_x
+@onready var mx_Y:int = self.owner.owner.max_y
+var diference:int = 48 #altura que difiere del mapa
+
+#region important values
+var SPEED = 250.0
 var vida:int = 200
 var damage:int = 4
-
 var canAttack:bool = true
 var attack_s:bool = true
 var enemyCol:bool = false
 var enemy = null
 var cont:int = 0
+#endregion
 
 func _ready() -> void:
-	print(vida)
-func _process(delta: float) -> void:
-	label.text = str(vida)
-func _physics_process(delta: float) -> void:
-	velocity.normalized()    
-	GameOver()
+	#camera limits
+	camera.limit_left = mn_X
+	camera.limit_top = mn_Y
+	camera.limit_right = mx_X
+	camera.limit_bottom = mx_Y
 	
-#func _input(event: InputEvent) -> void:
-	#if event.is_action_pressed("ui_accept"):
-		#if enemy != null:
-			##Attack(enemy, damage)
-			#if enemy.vida <= 0:
-				##vida += 10 
-				#cont += 1
-				#print("Contador enemigos: ", cont)     
-				   #
-  
-func GameOver() -> void:
-	if vida <= 0:
-		label.text = "Te moriste rey"
-
+	print(vida)
+	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
 		enemy = body #cuerpo que esta entrando
@@ -64,7 +58,6 @@ func Attack_special(enemy, damage) -> void:
 
 func _on_timer_timeout() -> void:
 	canAttack = true
-
 
 func _on_timer_2_timeout() -> void:
 	attack_s = true

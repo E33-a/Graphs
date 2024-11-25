@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://b3v50jmkjko67"]
 
-[ext_resource type="PackedScene" uid="uid://c7jjs3b6jhx1b" path="res://Scenes/player.tscn" id="1_pypo7"]
+[ext_resource type="PackedScene" uid="uid://c7jjs3b6jhx1b" path="res://Scenes/eirion.tscn" id="1_pypo7"]
 [ext_resource type="Script" path="res://Scripts/enemiesSpawn.gd" id="3_naw13"]
 [ext_resource type="Texture2D" uid="uid://cutiq1t4ptatg" path="res://Art/Textures/Tiles.png" id="4_0aa0l"]
 [ext_resource type="Texture2D" uid="uid://qvfbu71dp65w" path="res://Art/Textures/Trees.png" id="5_8ut0a"]

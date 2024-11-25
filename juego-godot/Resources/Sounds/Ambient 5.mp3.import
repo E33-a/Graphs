@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bqbeidyu3sjj1"
+path="res://.godot/imported/Ambient 5.mp3-db1e31cf222ebcf46f85f57a0a624531.mp3str"
+
+[deps]
+
+source_file="res://Resources/Sounds/Ambient 5.mp3"
+dest_files=["res://.godot/imported/Ambient 5.mp3-db1e31cf222ebcf46f85f57a0a624531.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

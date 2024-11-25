@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://87s4gcbf8g24"]
+
+[ext_resource type="Script" path="res://Scripts/pause.gd" id="1_8h785"]
+[ext_resource type="AudioStream" uid="uid://c2fntr8yp18mg" path="res://Resources/Sounds/epic3.wav" id="2_205h2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cg22h"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4mchl"]
+line_spacing = 13.0
+font_size = 38
+shadow_size = 15
+shadow_offset = Vector2(7, 7)
+
+[node name="Pause" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_8h785")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.576471)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -166.0
+offset_top = -218.0
+offset_right = 166.0
+offset_bottom = -164.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_cg22h")
+text = "MENÚ PRINCIPAL"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.5
+offset_top = -172.0
+offset_right = 80.5
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+text = "PAUSA"
+label_settings = SubResource("LabelSettings_4mchl")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -291.5
+offset_top = -65.0
+offset_right = 291.5
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Presiona <Esc> para continuar"
+label_settings = SubResource("LabelSettings_4mchl")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_205h2")
+volume_db = -5.0
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
