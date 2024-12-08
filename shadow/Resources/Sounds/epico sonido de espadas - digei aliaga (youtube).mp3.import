@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c50emwyblv6ml"
+path="res://.godot/imported/epico sonido de espadas - digei aliaga (youtube).mp3-244af4538bd0156e982bb9bcfd06b933.mp3str"
+
+[deps]
+
+source_file="res://Resources/Sounds/epico sonido de espadas - digei aliaga (youtube).mp3"
+dest_files=["res://.godot/imported/epico sonido de espadas - digei aliaga (youtube).mp3-244af4538bd0156e982bb9bcfd06b933.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

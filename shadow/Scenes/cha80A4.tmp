@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3v50jmkjko67"]
+
+[ext_resource type="Script" path="res://Scenes/characters.gd" id="1_2mycc"]
+[ext_resource type="PackedScene" uid="uid://c7jjs3b6jhx1b" path="res://Scenes/eirion.tscn" id="1_mejl3"]
+[ext_resource type="Script" path="res://Scripts/enemiesSpawn.gd" id="2_h4x10"]
+
+[node name="Characters" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(65, 63)
+script = ExtResource("1_2mycc")
+
+[node name="Player" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="player" parent="Player" instance=ExtResource("1_mejl3")]
+position = Vector2(587, 75)
+
+[node name="Enemies" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("2_h4x10")
+
+[node name="spawn1" type="Node2D" parent="Enemies"]
+position = Vector2(580, 332)
+
+[node name="Timer" type="Timer" parent="Enemies"]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Enemies/Timer" to="Enemies" method="_on_timer_timeout"]
