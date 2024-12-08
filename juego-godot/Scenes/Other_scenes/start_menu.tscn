@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://byn1fkvf04p78"]
 
 [ext_resource type="Texture2D" uid="uid://b0v6ruek68vg0" path="res://Art/castillo epico.png" id="1_ut6sp"]
-[ext_resource type="Script" path="res://Scripts/start_menu.gd" id="1_wuuwf"]
+[ext_resource type="Script" path="res://Scripts/Menus/start_menu.gd" id="1_wuuwf"]
 [ext_resource type="AudioStream" uid="uid://c2rcdo0epd4ho" path="res://Resources/Sounds/Ambient 2.mp3" id="3_2bwel"]
 [ext_resource type="AudioStream" uid="uid://cdow2sg32nws1" path="res://Resources/Sounds/select_button.wav" id="4_71qbv"]
 
@@ -12,13 +12,13 @@ blend_mode = 1
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.489865, 1), 0.0, 0.0, 0, 0, Vector2(0.787162, 0.61921), 0.0, 0.0, 0, 0, Vector2(0.966216, 0.194142), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 5
 
-[sub_resource type="CurveTexture" id="CurveTexture_ixh86"]
+[sub_resource type="CurveTexture" id="CurveTexture_vn0mt"]
 curve = SubResource("Curve_3fqkg")
 
 [sub_resource type="Gradient" id="Gradient_7po35"]
 colors = PackedColorArray(1, 1, 1, 0.156863, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_hlcgm"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aogyh"]
 gradient = SubResource("Gradient_7po35")
 
 [sub_resource type="Curve" id="Curve_5p27r"]
@@ -36,7 +36,7 @@ max_value = 3.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_hq0u1"]
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_lvre4"]
 curve_x = SubResource("Curve_5p27r")
 curve_y = SubResource("Curve_l1kyv")
 curve_z = SubResource("Curve_jg6cb")
@@ -60,10 +60,10 @@ radial_accel_min = 69.28
 radial_accel_max = 69.28
 scale_min = 0.0
 scale_max = 0.8
-scale_over_velocity_curve = SubResource("CurveXYZTexture_hq0u1")
+scale_over_velocity_curve = SubResource("CurveXYZTexture_lvre4")
 color = Color(0.843184, 0.843184, 0.843184, 1)
-color_initial_ramp = SubResource("GradientTexture1D_hlcgm")
-alpha_curve = SubResource("CurveTexture_ixh86")
+color_initial_ramp = SubResource("GradientTexture1D_aogyh")
+alpha_curve = SubResource("CurveTexture_vn0mt")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1uv0"]
 bg_color = Color(0, 0, 0, 1)
@@ -150,7 +150,7 @@ stream = ExtResource("3_2bwel")
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_71qbv")
-volume_db = -5.0
+volume_db = 8.0
 
 [connection signal="pressed" from="VBoxContainer/btn_play" to="." method="_on_btn_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/btn_options" to="." method="_on_btn_options_pressed"]

@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://c55go055lm3c"]
 
-[ext_resource type="Texture2D" uid="uid://b4mvkgajrugmb" path="res://Maps_resources/fire5/goblet2flameani1.png" id="1_pd6do"]
-[ext_resource type="Texture2D" uid="uid://bb4h2u7tgik42" path="res://Maps_resources/fire5/goblet2flameani2.png" id="2_03pgr"]
-[ext_resource type="Texture2D" uid="uid://djxkx7cajuk7o" path="res://Maps_resources/fire5/goblet2flameani3.png" id="3_h6n7o"]
-[ext_resource type="Texture2D" uid="uid://bcj737tviiwll" path="res://Maps_resources/fire5/goblet2flameani4.png" id="4_6c0b3"]
-[ext_resource type="Texture2D" uid="uid://cga8kg5iti0l2" path="res://Maps_resources/fire5/goblet2flameani5.png" id="5_uafxx"]
-[ext_resource type="Texture2D" uid="uid://ck8jll73yamue" path="res://Maps_resources/fire5/goblet2flameani6.png" id="6_fs4an"]
-[ext_resource type="Texture2D" uid="uid://f1xaa4lbvuur" path="res://Maps_resources/fire5/goblet2flameani7.png" id="7_j0bjb"]
+[ext_resource type="Texture2D" uid="uid://b4mvkgajrugmb" path="res://Map/fire5/goblet2flameani1.png" id="1_pd6do"]
+[ext_resource type="Texture2D" uid="uid://bb4h2u7tgik42" path="res://Map/fire5/goblet2flameani2.png" id="2_03pgr"]
+[ext_resource type="Texture2D" uid="uid://djxkx7cajuk7o" path="res://Map/fire5/goblet2flameani3.png" id="3_h6n7o"]
+[ext_resource type="Texture2D" uid="uid://bcj737tviiwll" path="res://Map/fire5/goblet2flameani4.png" id="4_6c0b3"]
+[ext_resource type="Texture2D" uid="uid://cga8kg5iti0l2" path="res://Map/fire5/goblet2flameani5.png" id="5_uafxx"]
+[ext_resource type="Texture2D" uid="uid://ck8jll73yamue" path="res://Map/fire5/goblet2flameani6.png" id="6_fs4an"]
+[ext_resource type="Texture2D" uid="uid://f1xaa4lbvuur" path="res://Map/fire5/goblet2flameani7.png" id="7_j0bjb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nmaah"]
 animations = [{

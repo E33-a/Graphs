@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=3 uid="uid://404fsnxmnfdn"]
 
-[ext_resource type="Texture2D" uid="uid://b4k2l7sb466rr" path="res://Maps_resources/TX FX Torch Flame.png" id="1_7njpa"]
+[ext_resource type="Texture2D" uid="uid://b4k2l7sb466rr" path="res://Map/TX FX Torch Flame.png" id="1_7njpa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2tgad"]
 atlas = ExtResource("1_7njpa")

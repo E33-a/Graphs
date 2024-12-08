@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://kah8acmcb3ob"]
 
-[ext_resource type="Texture2D" uid="uid://ekkou047urvl" path="res://Maps_resources/goblet2flameani-sheet.png" id="1_htjhh"]
+[ext_resource type="Texture2D" uid="uid://ekkou047urvl" path="res://Map/goblet2flameani-sheet.png" id="1_htjhh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kuvqb"]
 atlas = ExtResource("1_htjhh")

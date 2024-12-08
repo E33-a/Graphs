@@ -1,0 +1,1 @@
+class_name enemy_basic extends enemy_abstract

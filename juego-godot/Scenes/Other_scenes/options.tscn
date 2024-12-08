@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://epbpu3b0iqp8"]
 
-[ext_resource type="Script" path="res://Scripts/options.gd" id="1_0huni"]
+[ext_resource type="Script" path="res://Scripts/Menus/options.gd" id="1_0huni"]
 [ext_resource type="Texture2D" uid="uid://b0v6ruek68vg0" path="res://Art/castillo epico.png" id="2_wl57d"]
 [ext_resource type="AudioStream" uid="uid://cdow2sg32nws1" path="res://Resources/Sounds/select_button.wav" id="3_peukv"]
 [ext_resource type="AudioStream" uid="uid://dbiepvce32swk" path="res://Resources/Sounds/Ambient 3.mp3" id="4_myxrx"]
@@ -77,7 +77,7 @@ text = "ATRAS"
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_peukv")
-volume_db = -5.0
+volume_db = 8.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_myxrx")

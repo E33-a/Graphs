@@ -1,0 +1,158 @@
+[gd_scene load_steps=9 format=3 uid="uid://wkyv2jvyhyiw"]
+
+[ext_resource type="Script" path="res://Scripts/Menus/dead.gd" id="1_1bwai"]
+[ext_resource type="Texture2D" uid="uid://np3h6x26x3gr" path="res://Art/menu_failure.png" id="2_uklh2"]
+[ext_resource type="AudioStream" uid="uid://c2fntr8yp18mg" path="res://Resources/Sounds/epic3.wav" id="3_u85bw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4mchl"]
+line_spacing = 13.0
+font_size = 38
+shadow_size = 15
+shadow_offset = Vector2(7, 7)
+
+[sub_resource type="Animation" id="Animation_bc24m"]
+resource_name = "pos"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0.633333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(179, 208), Vector2(179, 205)]
+}
+
+[sub_resource type="Animation" id="Animation_8nubv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(179, 208)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rnwrp"]
+_data = {
+"RESET": SubResource("Animation_8nubv"),
+"pos": SubResource("Animation_bc24m")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cg22h"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Failure" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_1bwai")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.07
+anchor_right = 0.5
+anchor_bottom = 0.07
+offset_left = -382.5
+offset_top = 50.64
+offset_right = 382.5
+offset_bottom = 506.64
+grow_horizontal = 2
+color = Color(0, 0, 0, 0.576471)
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_uklh2")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="ColorRect/TextureRect"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -243.0
+offset_top = 80.0
+offset_right = 1.0
+offset_bottom = 133.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+text = "F A L L A S T E"
+label_settings = SubResource("LabelSettings_4mchl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="ColorRect/TextureRect"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -203.5
+offset_top = 207.924
+offset_right = 307.5
+offset_bottom = 260.924
+grow_horizontal = 2
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+text = "¡Vuelve a intentarlo!"
+label_settings = SubResource("LabelSettings_4mchl")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/TextureRect"]
+libraries = {
+"": SubResource("AnimationLibrary_rnwrp")
+}
+autoplay = "pos"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.912
+offset_left = -166.0
+offset_top = 53.0
+offset_right = 166.0
+offset_bottom = -16.872
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Button2" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_cg22h")
+text = "REINICIAR"
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_cg22h")
+text = "MENÚ PRINCIPAL"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_u85bw")
+volume_db = -5.0
+autoplay = true
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Button" to="." method="_on_button_pressed"]
