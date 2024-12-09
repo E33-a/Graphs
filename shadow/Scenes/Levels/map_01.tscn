@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://dijfhdkyrw6gg"]
+[gd_scene load_steps=40 format=4 uid="uid://dijfhdkyrw6gg"]
 
 [ext_resource type="Script" path="res://Scripts/Maps_levels/map_01.gd" id="1_2hpk3"]
 [ext_resource type="Texture2D" uid="uid://ut6cq0mmn52f" path="res://Map/tileset_bosque_expansion_rtp___rpg_maker_xp_by_mataraelfay_d5dn3fn.png" id="2_0dcce"]
@@ -380,12 +380,17 @@ texture = ExtResource("8_38exc")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7s2rl")
 
+[sub_resource type="LabelSettings" id="LabelSettings_w6uru"]
+
 [node name="Map" type="Node2D" groups=["maps"]]
 position = Vector2(-5, -6)
 script = ExtResource("1_2hpk3")
 
 [node name="map" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="MarkerPortal" type="Marker2D" parent="map"]
+position = Vector2(676, 595)
 
 [node name="Marker2D" type="Marker2D" parent="map"]
 position = Vector2(680, -30)
@@ -546,20 +551,18 @@ position = Vector2(659, 143)
 
 [node name="spawn_enemy1" parent="map" instance=ExtResource("21_hkrt1")]
 y_sort_enabled = true
-position = Vector2(1064, 640)
+position = Vector2(353, 230)
 
 [node name="spawn_enemy2" parent="map" instance=ExtResource("21_hkrt1")]
 y_sort_enabled = true
-position = Vector2(683, 634)
+position = Vector2(-146, 243)
 
 [node name="spawn_enemy3" parent="map" instance=ExtResource("21_hkrt1")]
 y_sort_enabled = true
-position = Vector2(478, 637)
+position = Vector2(-706, 240)
 
-[node name="Portal" parent="map" instance=ExtResource("26_fg3p2")]
-y_sort_enabled = true
-position = Vector2(684, 591)
-scale = Vector2(0.5, 0.5)
+[node name="portal" parent="map" instance=ExtResource("26_fg3p2")]
+position = Vector2(695, 713)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_pytnp")
@@ -570,7 +573,14 @@ volume_db = -7.0
 [node name="Dialogue" parent="CanvasLayer" instance=ExtResource("23_osrbt")]
 visible = false
 
-[node name="Failure" parent="." instance=ExtResource("26_8iq4h")]
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 49.0
+offset_bottom = 30.0
+label_settings = SubResource("LabelSettings_w6uru")
+vertical_alignment = 1
 
-[node name="Pause" parent="." instance=ExtResource("25_6amo3")]
-visible = false
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("25_6amo3")]
+
+[node name="Failure" parent="CanvasLayer" instance=ExtResource("26_8iq4h")]

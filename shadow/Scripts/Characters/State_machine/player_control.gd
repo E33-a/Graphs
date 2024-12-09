@@ -110,7 +110,7 @@ func _physics_process(delta: float) -> void:
 			#print("Estado: ATTACK_SPECIAL")
 			player.animations.play("attack1")                           
 			if player.enemyCol:  
-				player.Attack_special(player.enemy, player.damage+20.0) 
+				player.Attack_special(player.enemy, player.damage + 40.0) 
 			#cambios de estado
 			if is_moving():
 				current_state = STATE.RUN

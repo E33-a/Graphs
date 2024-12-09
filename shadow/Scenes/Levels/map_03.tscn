@@ -1093,6 +1093,5 @@ stream = ExtResource("54_svqge")
 volume_db = -7.0
 
 [node name="Pause" parent="." instance=ExtResource("55_qdb33")]
-visible = false
 
 [node name="Failure" parent="." instance=ExtResource("56_x07c1")]

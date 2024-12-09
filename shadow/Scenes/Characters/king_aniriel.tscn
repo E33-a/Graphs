@@ -1,24 +1,18 @@
-[gd_scene load_steps=28 format=4 uid="uid://bhk5ro37hiulj"]
+[gd_scene load_steps=27 format=4 uid="uid://bhk5ro37hiulj"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/king_aniriel.gd" id="1_8wess"]
+[ext_resource type="Texture2D" uid="uid://1xghnh67bund" path="res://Characters/Allies/Medieval King Pack 2/Attack2.png" id="2_rrumr"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ddnvn"]
-load_path = "res://.godot/imported/Attack2.png-959a08343acd3d82270c19638e5051ef.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gsrmw"]
-atlas = SubResource("CompressedTexture2D_ddnvn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhg8i"]
+atlas = ExtResource("2_rrumr")
 region = Rect2(0, 0, 160, 111)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ww8mo"]
-atlas = SubResource("CompressedTexture2D_ddnvn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_viyb5"]
+atlas = ExtResource("2_rrumr")
 region = Rect2(160, 0, 160, 111)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g7snl"]
-atlas = SubResource("CompressedTexture2D_ddnvn")
-region = Rect2(320, 0, 160, 111)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c04o2"]
-atlas = SubResource("CompressedTexture2D_ddnvn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g18y"]
+atlas = ExtResource("2_rrumr")
 region = Rect2(480, 0, 160, 111)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wa5ct"]
@@ -95,20 +89,17 @@ region = Rect2(1120, 0, 160, 111)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gsrmw")
+"texture": SubResource("AtlasTexture_nhg8i")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ww8mo")
+"texture": SubResource("AtlasTexture_viyb5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g7snl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c04o2")
+"texture": SubResource("AtlasTexture_0g18y")
 }],
 "loop": true,
-"name": &"attack",
-"speed": 3.0
+"name": &"base",
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -187,8 +178,8 @@ metadata/_edit_group_ = true
 position = Vector2(0, -21)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_mkpne")
-animation = &"idle"
-frame_progress = 0.170665
+animation = &"base"
+frame_progress = 0.634451
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, -3)
