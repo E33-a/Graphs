@@ -178,7 +178,7 @@ data = PackedByteArray("bwFvAbMBswGzAbMBwwHDAUwBTAHaANsAkgCPAIwAkAB0AHAA0gDVAHYB
 format = 1
 stereo = true
 
-[node name="King" type="CharacterBody2D"]
+[node name="King" type="CharacterBody2D" groups=["enemies"]]
 position = Vector2(402, 90)
 script = ExtResource("1_8wess")
 metadata/_edit_group_ = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=4 uid="uid://1xg23wof3hv1"]
+[gd_scene load_steps=135 format=4 uid="uid://1xg23wof3hv1"]
 
 [ext_resource type="Script" path="res://Scripts/Maps_levels/map_03.gd" id="1_tmmq8"]
 [ext_resource type="Texture2D" uid="uid://b4vvvj7fptftk" path="res://Map/3er map/tot.png" id="2_yysbi"]
@@ -53,7 +53,12 @@
 [ext_resource type="Texture2D" uid="uid://dl53xq3du2k7u" path="res://Map/3er map/Totem2.png" id="51_vh4hc"]
 [ext_resource type="Texture2D" uid="uid://c52yqcg0uxsa0" path="res://Map/3er map/Totem2_edit.png" id="52_ddb17"]
 [ext_resource type="PackedScene" uid="uid://c7jjs3b6jhx1b" path="res://Scenes/Characters/eirion.tscn" id="53_a60cm"]
+[ext_resource type="PackedScene" uid="uid://g08pvvokerf6" path="res://Scenes/Characters/ankor.tscn" id="54_qxxwt"]
 [ext_resource type="AudioStream" uid="uid://cq401521ir0br" path="res://Resources/Sounds/epic4.wav" id="54_svqge"]
+[ext_resource type="PackedScene" uid="uid://bgn8ucr8o1h83" path="res://Scenes/Characters/spawn_enemy_2.tscn" id="55_0yjit"]
+[ext_resource type="PackedScene" uid="uid://87s4gcbf8g24" path="res://Scenes/Other_scenes/pause.tscn" id="55_qdb33"]
+[ext_resource type="PackedScene" uid="uid://c55syvelvlqei" path="res://Scenes/Characters/spawn_enemy.tscn" id="56_mi026"]
+[ext_resource type="PackedScene" uid="uid://wkyv2jvyhyiw" path="res://Scenes/Other_scenes/dead.tscn" id="56_x07c1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w72wu"]
 texture = ExtResource("2_yysbi")
@@ -1061,8 +1066,33 @@ tile_set = SubResource("TileSet_rjnsd")
 
 [node name="player" parent="map" instance=ExtResource("53_a60cm")]
 y_sort_enabled = true
-position = Vector2(824, 182)
+position = Vector2(684, 495)
+
+[node name="Ankor" parent="map" instance=ExtResource("54_qxxwt")]
+y_sort_enabled = true
+position = Vector2(695, 166)
+
+[node name="spawn_enemy_2" parent="map" instance=ExtResource("55_0yjit")]
+y_sort_enabled = true
+position = Vector2(280, 83)
+
+[node name="spawn_enemy_3" parent="map" instance=ExtResource("55_0yjit")]
+y_sort_enabled = true
+position = Vector2(680, 131)
+
+[node name="spawn_enemy" parent="map" instance=ExtResource("56_mi026")]
+y_sort_enabled = true
+position = Vector2(1353, 126)
+
+[node name="spawn_enemy2" parent="map" instance=ExtResource("56_mi026")]
+y_sort_enabled = true
+position = Vector2(1101, 66)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("54_svqge")
 volume_db = -7.0
+
+[node name="Pause" parent="." instance=ExtResource("55_qdb33")]
+visible = false
+
+[node name="Failure" parent="." instance=ExtResource("56_x07c1")]

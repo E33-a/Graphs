@@ -14,8 +14,13 @@ var dialog = [
 
 var end_dialog:bool = false
 var active_spawn:bool = false
+var path:String = "res://Scenes/Levels/map_02.tscn"
+	
 
 func _physics_process(delta: float) -> void:
+	if $map/Portal.player_in_area and $map/Portal.visible:
+		$map/Portal.change_scene(path)
+	check_enemies()
 	if king != null:
 		if king.global_position.distance_to(Vector2(680,270)) < 6:
 			print("ya llego")
@@ -33,3 +38,14 @@ func _physics_process(delta: float) -> void:
 		$map/spawn_enemy1.spawn()
 		$map/spawn_enemy2.spawn()
 		$map/spawn_enemy3.spawn()
+
+func check_enemies() -> void:
+	# Obtén todos los nodos en el grupo "enemies"
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	await get_tree().create_timer(4.0).timeout
+	# Comprueba si no quedan nodos
+	if enemies.is_empty():
+		print("¡Todos los enemigos han sido eliminados!")
+		$map/Portal.visible = true
+	else:
+		print("Aún quedan enemigos: %d" % enemies.size())

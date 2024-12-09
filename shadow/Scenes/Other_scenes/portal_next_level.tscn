@@ -1,0 +1,141 @@
+[gd_scene load_steps=7 format=3 uid="uid://d051olebw5rht"]
+
+[ext_resource type="Script" path="res://Scripts/Elements/portal_next_level.gd" id="1_pt4np"]
+[ext_resource type="Texture2D" uid="uid://bt4mfo1u43vea" path="res://Art/portal.png" id="2_okhbc"]
+[ext_resource type="AudioStream" uid="uid://qus5xrhfmxv0" path="res://Resources/Sounds/Victory.mp3" id="3_kualp"]
+
+[sub_resource type="Animation" id="Animation_djivn"]
+resource_name = "pos"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.633333, 0.866667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1.99239, 0.169095), Vector2(0.803694, -1.07203), Vector2(0.638239, 1.69961)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionPolygon2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.866667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1.99239, 0.174311), Vector2(0.806383, -1.07437), Vector2(0.471823, -0.274309)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.633333, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, -0.0523599, -0.0244236]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionPolygon2D:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, -0.0523599, -0.0246216]
+}
+
+[sub_resource type="Animation" id="Animation_tddan"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionPolygon2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionPolygon2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7s8pj"]
+_data = {
+"RESET": SubResource("Animation_tddan"),
+"pos": SubResource("Animation_djivn")
+}
+
+[node name="Area2D" type="Area2D"]
+visible = false
+rotation = 0.0872665
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_pt4np")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.697015, 0.718518)
+texture = ExtResource("2_okhbc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PackedVector2Array(75, 40, 84, 36, 87, 38, 96, 34, 107, 21, 111, 8, 109, -3, 98, -18, 82, -28, 65, -35, 52, -39, 35, -39, 24, -42, 9, -43, -3, -43, -17, -43, -32, -40, -44, -39, -53, -34, -63, -34, -73, -32, -79, -28, -89, -23, -97, -17, -104, -9, -105, -7, -99, -3, -101, 2, -107, 1, -107, 11, -103, 22, -98, 30, -89, 36, -79, 44, -65, 48, -53, 52, -46, 49, -40, 51, -40, 55, -30, 58, -19, 59, 1, 60, 12, 60, 28, 59, 43, 57, 52, 54, 52, 48, 66, 44)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7s8pj")
+}
+autoplay = "pos"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kualp")
+volume_db = -7.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

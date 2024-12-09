@@ -63,7 +63,7 @@ func Attack_special(enemy, damage) -> void:
 		
 func regenerate() -> void:
 	if regenerate_life and vida < 100:
-		vida += 10
+		vida += 40
 		$Regenerate.start()
 		regenerate_life = false
 		if vida > 100:

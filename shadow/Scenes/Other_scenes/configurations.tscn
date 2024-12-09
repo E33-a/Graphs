@@ -1,0 +1,135 @@
+[gd_scene load_steps=9 format=3 uid="uid://dwsbho6xbslxs"]
+
+[ext_resource type="Script" path="res://Scripts/Menus/configurations.gd" id="1_lqsk7"]
+[ext_resource type="Texture2D" uid="uid://b0v6ruek68vg0" path="res://Art/castillo epico.png" id="2_vndn1"]
+[ext_resource type="AudioStream" uid="uid://cdow2sg32nws1" path="res://Resources/Sounds/select_button.wav" id="3_lynhs"]
+[ext_resource type="AudioStream" uid="uid://dbiepvce32swk" path="res://Resources/Sounds/Ambient 3.mp3" id="4_s0e2x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfky4"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yr6p8"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ljwmf"]
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_b1ohf"]
+
+[node name="Configurations" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lqsk7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.352941)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vndn1")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = 48.0
+offset_right = 240.0
+offset_bottom = 248.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="btn_main_menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_mfky4")
+text = "MENÚ PRINCIPAL"
+
+[node name="btn_back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_yr6p8")
+text = "ATRAS"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lynhs")
+volume_db = 8.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_s0e2x")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -277.0
+offset_top = 74.0
+offset_right = 277.0
+offset_bottom = 208.0
+grow_horizontal = 2
+
+[node name="Volumen_game" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "V O L U M E N"
+label_settings = SubResource("LabelSettings_ljwmf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.495
+anchor_right = 0.5
+offset_left = -467.89
+offset_top = 200.0
+offset_right = -163.0
+offset_bottom = 240.0
+grow_horizontal = 2
+scale = Vector2(3, 3)
+size_flags_vertical = 6
+min_value = -80.0
+max_value = 0.0
+
+[node name="Indicator_numeric" type="Label" parent="HSlider"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.5
+offset_top = 3.83333
+offset_right = 26.5
+offset_bottom = 26.8333
+grow_horizontal = 2
+grow_vertical = 2
+text = "100
+"
+label_settings = SubResource("LabelSettings_b1ohf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/btn_main_menu" to="." method="_on_btn_main_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/btn_back" to="." method="_on_btn_back_pressed"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://cef0a13brj162"]
+[gd_scene load_steps=41 format=4 uid="uid://cef0a13brj162"]
 
 [ext_resource type="Script" path="res://Scripts/Maps_levels/map_02.gd" id="1_hq2xs"]
 [ext_resource type="Texture2D" uid="uid://ut6cq0mmn52f" path="res://Map/tileset_bosque_expansion_rtp___rpg_maker_xp_by_mataraelfay_d5dn3fn.png" id="2_laagy"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c7jjs3b6jhx1b" path="res://Scenes/Characters/eirion.tscn" id="16_um0li"]
 [ext_resource type="AudioStream" uid="uid://c2qss4do0fe0w" path="res://Resources/Sounds/epic1.wav" id="17_e76ku"]
 [ext_resource type="PackedScene" uid="uid://fl15bitdxuyw" path="res://Scenes/Characters/enemy_lackey.tscn" id="17_v05mm"]
+[ext_resource type="PackedScene" uid="uid://bgn8ucr8o1h83" path="res://Scenes/Characters/spawn_enemy_2.tscn" id="18_0xyy5"]
 [ext_resource type="PackedScene" uid="uid://87s4gcbf8g24" path="res://Scenes/Other_scenes/pause.tscn" id="19_lr0wd"]
 [ext_resource type="PackedScene" uid="uid://wkyv2jvyhyiw" path="res://Scenes/Other_scenes/dead.tscn" id="20_6p0lh"]
 
@@ -588,10 +589,26 @@ tile_set = SubResource("TileSet_4qqa4")
 
 [node name="player" parent="map" instance=ExtResource("16_um0li")]
 y_sort_enabled = true
-position = Vector2(291, 91)
+position = Vector2(518, 195)
 
 [node name="Lackey" parent="map" instance=ExtResource("17_v05mm")]
-position = Vector2(761, 373)
+position = Vector2(1039, 306)
+
+[node name="spawn_enemy_2" parent="map" instance=ExtResource("18_0xyy5")]
+y_sort_enabled = true
+position = Vector2(32, 91)
+
+[node name="spawn_enemy_3" parent="map" instance=ExtResource("18_0xyy5")]
+y_sort_enabled = true
+position = Vector2(-29, 651)
+
+[node name="spawn_enemy_4" parent="map" instance=ExtResource("18_0xyy5")]
+y_sort_enabled = true
+position = Vector2(1302, 526)
+
+[node name="spawn_enemy_5" parent="map" instance=ExtResource("18_0xyy5")]
+y_sort_enabled = true
+position = Vector2(1304, 74)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_e76ku")

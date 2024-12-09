@@ -1,0 +1,277 @@
+[gd_scene load_steps=59 format=3 uid="uid://ds2onv0mdiuh6"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/enemy_demon.gd" id="1_hggd3"]
+[ext_resource type="Texture2D" uid="uid://dsqf4pauqddhu" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/attack2_1.png" id="2_2xqlb"]
+[ext_resource type="Texture2D" uid="uid://brs28wloekksm" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/attack2_2.png" id="3_dbj1a"]
+[ext_resource type="Texture2D" uid="uid://bcxfyu0gf0leg" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/attack2_3.png" id="4_dcb6c"]
+[ext_resource type="Texture2D" uid="uid://bt7ueuv07jt50" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/attack2_4.png" id="5_pnrxl"]
+[ext_resource type="Texture2D" uid="uid://cpgw1kow3x2r1" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/attack2_5.png" id="6_vkbd6"]
+[ext_resource type="Texture2D" uid="uid://bidvagi2wgluh" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/attack2_6.png" id="7_8hon8"]
+[ext_resource type="Texture2D" uid="uid://bevu57putr0gk" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/fall_back_1.png" id="8_leywg"]
+[ext_resource type="Texture2D" uid="uid://slsem5lorv50" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/fall_back_2.png" id="9_xqjyw"]
+[ext_resource type="Texture2D" uid="uid://rwgg2cxhy8wa" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/fall_back_3.png" id="10_l5uca"]
+[ext_resource type="Texture2D" uid="uid://iikxcomneck7" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/fall_back_4.png" id="11_ch8px"]
+[ext_resource type="Texture2D" uid="uid://b3gs6qtae50vg" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/fall_back_5.png" id="12_8nn0o"]
+[ext_resource type="Texture2D" uid="uid://4gwm5baybstk" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/hit_1.png" id="13_fg3vj"]
+[ext_resource type="Texture2D" uid="uid://dixcloi3pidgw" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/hit_2.png" id="14_x1i5d"]
+[ext_resource type="Texture2D" uid="uid://b6vp0pivqbvs8" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/hit_3.png" id="15_8nl35"]
+[ext_resource type="Texture2D" uid="uid://b10abyi0b8urb" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/ready_1.png" id="16_5pcmx"]
+[ext_resource type="Texture2D" uid="uid://di46euyqdghh1" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/ready_2.png" id="17_ne20h"]
+[ext_resource type="Texture2D" uid="uid://c37h22h370o67" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/ready_3.png" id="18_ds8l4"]
+[ext_resource type="Texture2D" uid="uid://c4wvnpfknh20d" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/ready_4.png" id="19_3j818"]
+[ext_resource type="Texture2D" uid="uid://bvxgkvvdn01wg" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/ready_5.png" id="20_xo7r0"]
+[ext_resource type="Texture2D" uid="uid://bmb0r30gkllce" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/ready_6.png" id="21_dm4im"]
+[ext_resource type="Texture2D" uid="uid://co22yes6gfrxg" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/run_1.png" id="22_66nky"]
+[ext_resource type="Texture2D" uid="uid://cvnsr3wwnxcpf" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/run_2.png" id="23_d7x3i"]
+[ext_resource type="Texture2D" uid="uid://drrpxb0dspgbv" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/run_3.png" id="24_0ba8o"]
+[ext_resource type="Texture2D" uid="uid://bvgnc5cu72olu" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/run_4.png" id="25_ksabb"]
+[ext_resource type="Texture2D" uid="uid://drl2ygpggie1g" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/run_5.png" id="26_w02gf"]
+[ext_resource type="Texture2D" uid="uid://bmjctkcab4ep7" path="res://Characters/Enemies/imp_axe_demon/imp_axe_demon/imp_red/run_6.png" id="27_ftan1"]
+[ext_resource type="PackedScene" uid="uid://bcfu2ouaqngnc" path="res://Scenes/Other_scenes/progress_bar_enemies.tscn" id="28_cve8f"]
+[ext_resource type="Script" path="res://Scripts/Characters/State_machine/enemy_control.gd" id="29_rbu36"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrrvg"]
+atlas = ExtResource("2_2xqlb")
+region = Rect2(0, 0, 80, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uloco"]
+atlas = ExtResource("3_dbj1a")
+region = Rect2(0, 0, 80, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xf77"]
+atlas = ExtResource("4_dcb6c")
+region = Rect2(0, 0, 80, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87h0t"]
+atlas = ExtResource("5_pnrxl")
+region = Rect2(0, 0, 80, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbyoy"]
+atlas = ExtResource("6_vkbd6")
+region = Rect2(0, 0, 80, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tetop"]
+atlas = ExtResource("7_8hon8")
+region = Rect2(0, 0, 80, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmwyf"]
+atlas = ExtResource("8_leywg")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88klf"]
+atlas = ExtResource("9_xqjyw")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncrva"]
+atlas = ExtResource("10_l5uca")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr7uq"]
+atlas = ExtResource("11_ch8px")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bu6b"]
+atlas = ExtResource("12_8nn0o")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6v8o"]
+atlas = ExtResource("13_fg3vj")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_425ma"]
+atlas = ExtResource("14_x1i5d")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13prq"]
+atlas = ExtResource("15_8nl35")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhnq5"]
+atlas = ExtResource("16_5pcmx")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21s6f"]
+atlas = ExtResource("17_ne20h")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15tne"]
+atlas = ExtResource("18_ds8l4")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcske"]
+atlas = ExtResource("19_3j818")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpym0"]
+atlas = ExtResource("20_xo7r0")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpwuk"]
+atlas = ExtResource("21_dm4im")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a58q7"]
+atlas = ExtResource("22_66nky")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_altkt"]
+atlas = ExtResource("23_d7x3i")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6cg3"]
+atlas = ExtResource("24_0ba8o")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pei7i"]
+atlas = ExtResource("25_ksabb")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlyqs"]
+atlas = ExtResource("26_w02gf")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5aqms"]
+atlas = ExtResource("27_ftan1")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ockh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrrvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uloco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xf77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87h0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbyoy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tetop")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmwyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88klf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncrva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr7uq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bu6b")
+}],
+"loop": true,
+"name": &"death",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6v8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_425ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13prq")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhnq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21s6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15tne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcske")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpym0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpwuk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a58q7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_altkt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6cg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pei7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlyqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5aqms")
+}],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mfu1"]
+size = Vector2(15.5, 4)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_um32b"]
+radius = 24.0208
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
+script = ExtResource("1_hggd3")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2ockh")
+animation = &"hurt"
+frame_progress = 0.775715
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_7mfu1")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_um32b")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="ProgressBarEnemy" parent="." instance=ExtResource("28_cve8f")]
+offset_left = -17.0
+offset_top = -19.0
+offset_right = 17.0
+offset_bottom = -16.0
+
+[node name="EnemyControl" type="Node" parent="."]
+script = ExtResource("29_rbu36")

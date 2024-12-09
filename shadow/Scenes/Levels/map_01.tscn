@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://dijfhdkyrw6gg"]
+[gd_scene load_steps=39 format=4 uid="uid://dijfhdkyrw6gg"]
 
 [ext_resource type="Script" path="res://Scripts/Maps_levels/map_01.gd" id="1_2hpk3"]
 [ext_resource type="Texture2D" uid="uid://ut6cq0mmn52f" path="res://Map/tileset_bosque_expansion_rtp___rpg_maker_xp_by_mataraelfay_d5dn3fn.png" id="2_0dcce"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dlwv67rbwl087" path="res://Scenes/Other_scenes/dialogue.tscn" id="23_osrbt"]
 [ext_resource type="PackedScene" uid="uid://87s4gcbf8g24" path="res://Scenes/Other_scenes/pause.tscn" id="25_6amo3"]
 [ext_resource type="PackedScene" uid="uid://wkyv2jvyhyiw" path="res://Scenes/Other_scenes/dead.tscn" id="26_8iq4h"]
+[ext_resource type="PackedScene" uid="uid://d051olebw5rht" path="res://Scenes/Other_scenes/portal_next_level.tscn" id="26_fg3p2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jg5qp"]
 texture = ExtResource("2_0dcce")
@@ -545,15 +546,20 @@ position = Vector2(659, 143)
 
 [node name="spawn_enemy1" parent="map" instance=ExtResource("21_hkrt1")]
 y_sort_enabled = true
-position = Vector2(1071, 684)
+position = Vector2(1064, 640)
 
 [node name="spawn_enemy2" parent="map" instance=ExtResource("21_hkrt1")]
 y_sort_enabled = true
-position = Vector2(738, 681)
+position = Vector2(683, 634)
 
 [node name="spawn_enemy3" parent="map" instance=ExtResource("21_hkrt1")]
 y_sort_enabled = true
-position = Vector2(441, 681)
+position = Vector2(478, 637)
+
+[node name="Portal" parent="map" instance=ExtResource("26_fg3p2")]
+y_sort_enabled = true
+position = Vector2(684, 591)
+scale = Vector2(0.5, 0.5)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_pytnp")

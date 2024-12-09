@@ -372,7 +372,7 @@ wait_time = 0.2
 wait_time = 5.0
 
 [node name="Regenerate" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 3.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1, 55)

@@ -3,7 +3,7 @@ extends Area2D
 @onready var enemy_basic = preload("res://Scenes/Characters/enemy_basic.tscn")
 @onready var enemy_wizard = preload("res://Scenes/Characters/enemy_wizard.tscn")
 @onready var enemy_death = preload("res://Scenes/Characters/enemy_death.tscn")
-@export var no_enemies:int = 3
+@export var no_enemies:int = 1
 
 var active:bool = true
 var cont:int = 0
