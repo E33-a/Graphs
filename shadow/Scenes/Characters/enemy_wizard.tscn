@@ -1,6 +1,7 @@
-[gd_scene load_steps=46 format=3 uid="uid://ceknifxhhln3s"]
+[gd_scene load_steps=47 format=3 uid="uid://ceknifxhhln3s"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/enemy_wizard.gd" id="1_tabdm"]
+[ext_resource type="PackedScene" uid="uid://bcfu2ouaqngnc" path="res://Scenes/Other_scenes/progress_bar_enemies.tscn" id="3_vkm8i"]
 [ext_resource type="Script" path="res://Scripts/Characters/State_machine/enemy_control.gd" id="7_k7rcq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uor7i"]
@@ -298,10 +299,10 @@ animations = [{
 }]
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_tabdm")
-SPEED = 100.0
-vida = 8
+damage = 20.0
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 35.1667)
@@ -323,6 +324,12 @@ wait_time = 2.0
 
 [node name="EnemyControl" type="Node" parent="."]
 script = ExtResource("7_k7rcq")
+
+[node name="ProgressBarEnemy" parent="." instance=ExtResource("3_vkm8i")]
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 38.0
+offset_bottom = -22.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

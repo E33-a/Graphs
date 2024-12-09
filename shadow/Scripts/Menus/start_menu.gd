@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 func _on_btn_play_pressed() -> void:
 	select_audio.play()	
 	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://Scenes/Other_scenes/LEVEL_ONE.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/map_01.tscn")
 
 
 func _on_btn_options_pressed() -> void:

@@ -12,9 +12,6 @@ var is_attacking:bool = false
 func _ready() -> void:
 	start_moving(Vector2(680, 270))
 
-	# Conecta correctamente la señal utilizando el nuevo formato
-	animations.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
-
 # Inicia el movimiento hacia un destino
 func start_moving(destination: Vector2) -> void:
 	target_position = destination

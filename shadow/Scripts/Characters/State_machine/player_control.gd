@@ -50,9 +50,9 @@ func moving(directionX, directionY) -> void:
 #endregion
 
 func _physics_process(delta: float) -> void:
+	player.progress_bar.update_life(player.vida)
 	attack_audios()
 	
-	player.label.text = str(player.vida)
 	player.position.x = clamp(player.position.x, player.mn_X, player.mx_X)
 	player.position.y = clamp(player.position.y, player.mn_Y, player.mx_Y - player.diference)
 	
@@ -110,7 +110,7 @@ func _physics_process(delta: float) -> void:
 			#print("Estado: ATTACK_SPECIAL")
 			player.animations.play("attack1")                           
 			if player.enemyCol:  
-				player.Attack_special(player.enemy, player.damage+10) 
+				player.Attack_special(player.enemy, player.damage+20.0) 
 			#cambios de estado
 			if is_moving():
 				current_state = STATE.RUN

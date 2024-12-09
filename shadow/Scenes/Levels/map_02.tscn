@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://cef0a13brj162"]
+[gd_scene load_steps=40 format=4 uid="uid://cef0a13brj162"]
 
 [ext_resource type="Script" path="res://Scripts/Maps_levels/map_02.gd" id="1_hq2xs"]
 [ext_resource type="Texture2D" uid="uid://ut6cq0mmn52f" path="res://Map/tileset_bosque_expansion_rtp___rpg_maker_xp_by_mataraelfay_d5dn3fn.png" id="2_laagy"]
@@ -17,6 +17,9 @@
 [ext_resource type="Script" path="res://Scripts/Maps_elements/rain.gd" id="15_rvn70"]
 [ext_resource type="PackedScene" uid="uid://c7jjs3b6jhx1b" path="res://Scenes/Characters/eirion.tscn" id="16_um0li"]
 [ext_resource type="AudioStream" uid="uid://c2qss4do0fe0w" path="res://Resources/Sounds/epic1.wav" id="17_e76ku"]
+[ext_resource type="PackedScene" uid="uid://fl15bitdxuyw" path="res://Scenes/Characters/enemy_lackey.tscn" id="17_v05mm"]
+[ext_resource type="PackedScene" uid="uid://87s4gcbf8g24" path="res://Scenes/Other_scenes/pause.tscn" id="19_lr0wd"]
+[ext_resource type="PackedScene" uid="uid://wkyv2jvyhyiw" path="res://Scenes/Other_scenes/dead.tscn" id="20_6p0lh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cns8c"]
 texture = ExtResource("2_laagy")
@@ -587,6 +590,14 @@ tile_set = SubResource("TileSet_4qqa4")
 y_sort_enabled = true
 position = Vector2(291, 91)
 
+[node name="Lackey" parent="map" instance=ExtResource("17_v05mm")]
+position = Vector2(761, 373)
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_e76ku")
 volume_db = -7.0
+
+[node name="Pause" parent="." instance=ExtResource("19_lr0wd")]
+visible = false
+
+[node name="Failure" parent="." instance=ExtResource("20_6p0lh")]

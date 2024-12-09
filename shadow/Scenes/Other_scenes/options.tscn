@@ -63,7 +63,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_d1uv0")
 text = "VOLUMEN"
 
-[node name="btn_resolution" type="Button" parent="VBoxContainer"]
+[node name="btn_select_level" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_mfky4")
@@ -83,5 +83,5 @@ volume_db = 8.0
 stream = ExtResource("4_myxrx")
 
 [connection signal="pressed" from="VBoxContainer/btn_volume" to="." method="_on_btn_volume_pressed"]
-[connection signal="pressed" from="VBoxContainer/btn_resolution" to="." method="_on_btn_resolution_pressed"]
+[connection signal="pressed" from="VBoxContainer/btn_select_level" to="." method="_on_btn_select_level_pressed"]
 [connection signal="pressed" from="VBoxContainer/btn_back" to="." method="_on_btn_back_pressed"]

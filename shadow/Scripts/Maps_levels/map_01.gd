@@ -1,22 +1,23 @@
 extends map_base
-
+#mapa1
 @onready var dialogue = $CanvasLayer/Dialogue
 @onready var king:CharacterBody2D = $map/King
 @onready var marker:Marker2D = $map/Marker2D
 
 var dialog = [
-	'Rey Aniriel: ¡EIRION! LA CIUDAD ESTÁ ASEDIADA, ¡DEBES DEFENDERLA! El ejercito de Ankor nos ha acorralado, la defensa de la ciudad esta en tus manos, se que tienes el poder suficiente para poder enfrentar al mal, al igual que tu padre, te deseo suerte',
-	'Rey Aniriel: Para moverte utiliza W (arriba), S (abajo), A (izquierda), D (derecha), para atacar L (ataque basico) o K (ataque especial) minetras no te muevas.',
-	'Rey Aniriel: Ten cuidado con los enemigos, tienen diferente daño y velocidad, no dejes que acaben contigo, Toria y el mundo te necesita.',
-	'Eirion: Lo entiendo mi rey, no se que fuerza este en mi pero luchare hasta que el ultimo suspiro parta de mi pecho, como la oscuridad que parte con la luz.',
-	'Eirion: La ciudad no caera mientras tenga fuerzas para defenderla, se lo jure a mi padre que antes de que diera su vida por nuestra libertad, refugiese mi rey, aun no puede pelear, yo me encargo!'
+	'Rey Aniriel: ¡EIRION! ¡LA CIUDAD ESTÁ ASEDIADA! ¡DEBES DEFENDERLA! El ejército de Ankor nos ha acorralado. La defensa de nuestra tierra está ahora en tus manos. Sé que, en lo más profundo de tu ser, posees el poder que nos une a todos, como lo tuvo tu padre. La luz que arde en ti es la misma que derrotó la oscuridad en su tiempo. Te deseo suerte, pero más aún, te deseo la fortaleza para reconocer tu destino.',
+	'Rey Aniriel: Para moverte, usa W (arriba), S (abajo), A (izquierda), D (derecha). Y para atacar, usa L (ataque básico) o K (ataque especial). Pero recuerda, no solo el cuerpo se mueve. Tu alma debe estar en armonía con cada movimiento. Cada golpe que des no es solo un acto de fuerza, sino una manifestación de tu voluntad interior.',
+	'Rey Aniriel: Ten cuidado, Eirion. Los enemigos que se alzan contra nosotros no son solo sombras físicas, son la representación del caos y la destrucción. Cada uno tiene su propia esencia: un daño, una velocidad, una intención. No subestimes sus motivaciones, ni te dejes consumir por la ira. La serenidad será tu mayor aliada, pues el mundo que conocemos depende de la calma que se encuentra dentro de ti.',
+	'Eirion: Lo entiendo, mi rey. Hay algo que arde en mí, algo más grande que yo, algo ancestral que me empuja a luchar. No sé si esa fuerza es un legado o una prueba del destino, pero lucharé hasta el último de mis suspiros, hasta que mi cuerpo se convierta en la tierra que protejo. La oscuridad puede rodearme, pero siempre se disipa ante la luz que hay en mí.',
+	'Eirion: La ciudad no caerá mientras mi corazón siga latiendo. Se lo prometí a mi padre, a aquel que dio su vida por nuestra libertad. Y lo juré a las estrellas, que miran desde el principio de los tiempos. ¡Refúgiate, mi rey! El momento de la lucha ha llegado para mí. Tú aún no puedes pelear, pero yo, con la fuerza del sacrificio y la esperanza, me encargaré. Mi vida es ahora una llama que se extiende en esta oscuridad, y hasta el último resplandor será por Toria.'
 ]
 
 var end_dialog:bool = false
+var active_spawn:bool = false
 
 func _physics_process(delta: float) -> void:
 	if king != null:
-		if king.global_position.distance_to(Vector2(680,270)) < 5:
+		if king.global_position.distance_to(Vector2(680,270)) < 6:
 			print("ya llego")
 			if dialogue != null:
 				dialogue.visible = true
@@ -27,10 +28,8 @@ func _physics_process(delta: float) -> void:
 			king.go_out(marker.position)
 			if king.global_position.distance_to(marker.position) < 5:
 				king.queue_free()
-				
-func _process(delta: float) -> void:
-	if player == null:
-		get_tree().paused = true
-		$Failure.visible = true
-		
-		
+				active_spawn = true
+	if active_spawn:
+		$map/spawn_enemy1.spawn()
+		$map/spawn_enemy2.spawn()
+		$map/spawn_enemy3.spawn()

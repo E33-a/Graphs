@@ -20,6 +20,8 @@ func is_hurt() -> bool:
 	return enemy.playerCol and enemy.player.canAttack and not enemy.canAttack
 	
 func _physics_process(delta: float) -> void:
+	#Acccedemos a la progressBar para actualizar la vida
+	enemy.progress_bar.update_life(enemy.vida)
 	enemy.global_position.x = clamp(enemy.global_position.x, 0, 1412)
 	enemy.global_position.y = clamp(enemy.global_position.y, 0, 643)
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://dijfhdkyrw6gg"]
+[gd_scene load_steps=38 format=4 uid="uid://dijfhdkyrw6gg"]
 
 [ext_resource type="Script" path="res://Scripts/Maps_levels/map_01.gd" id="1_2hpk3"]
 [ext_resource type="Texture2D" uid="uid://ut6cq0mmn52f" path="res://Map/tileset_bosque_expansion_rtp___rpg_maker_xp_by_mataraelfay_d5dn3fn.png" id="2_0dcce"]
@@ -22,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://c7jjs3b6jhx1b" path="res://Scenes/Characters/eirion.tscn" id="20_i6p2c"]
 [ext_resource type="PackedScene" uid="uid://c55syvelvlqei" path="res://Scenes/Characters/spawn_enemy.tscn" id="21_hkrt1"]
 [ext_resource type="AudioStream" uid="uid://bth3wgsceulev" path="res://Resources/Sounds/epic2.wav" id="22_pytnp"]
-[ext_resource type="PackedScene" uid="uid://ceknifxhhln3s" path="res://Scenes/Characters/enemy_wizard.tscn" id="23_cxoyt"]
 [ext_resource type="PackedScene" uid="uid://dlwv67rbwl087" path="res://Scenes/Other_scenes/dialogue.tscn" id="23_osrbt"]
 [ext_resource type="PackedScene" uid="uid://87s4gcbf8g24" path="res://Scenes/Other_scenes/pause.tscn" id="25_6amo3"]
 [ext_resource type="PackedScene" uid="uid://wkyv2jvyhyiw" path="res://Scenes/Other_scenes/dead.tscn" id="26_8iq4h"]
@@ -544,12 +543,17 @@ position = Vector2(682, 10)
 y_sort_enabled = true
 position = Vector2(659, 143)
 
-[node name="spawn_enemy" parent="map" instance=ExtResource("21_hkrt1")]
+[node name="spawn_enemy1" parent="map" instance=ExtResource("21_hkrt1")]
 y_sort_enabled = true
-position = Vector2(690, 507)
+position = Vector2(1071, 684)
 
-[node name="enemy" parent="map" instance=ExtResource("23_cxoyt")]
-position = Vector2(313, 308)
+[node name="spawn_enemy2" parent="map" instance=ExtResource("21_hkrt1")]
+y_sort_enabled = true
+position = Vector2(738, 681)
+
+[node name="spawn_enemy3" parent="map" instance=ExtResource("21_hkrt1")]
+y_sort_enabled = true
+position = Vector2(441, 681)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_pytnp")
@@ -563,3 +567,4 @@ visible = false
 [node name="Failure" parent="." instance=ExtResource("26_8iq4h")]
 
 [node name="Pause" parent="." instance=ExtResource("25_6amo3")]
+visible = false

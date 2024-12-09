@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody2D
 
-@onready var label:Label = $Label1
+@onready var progress_bar:Bar_health = $ProgressBar
 @onready var animations:AnimatedSprite2D = $AnimatedSprite2D
 @onready var camera:Camera2D = $Camera2D
 @onready var audio_attack_basic:AudioStreamPlayer = $AudioAttackBasic
@@ -14,9 +14,9 @@ class_name Player extends CharacterBody2D
 var diference:int = 48 #altura que difiere del mapa
 
 #region important values
-var SPEED = 250.0
-var vida:int = 100
-var damage:int = 50
+@export var SPEED = 250.0
+@export var vida:float = 100.0
+@export var damage:float = 20.0
 var canAttack:bool = true
 var attack_s:bool = true
 var enemyCol:bool = false
@@ -32,6 +32,7 @@ func _ready() -> void:
 	camera.limit_right = mx_X
 	camera.limit_bottom = mx_Y
 	print(vida)
+	progress_bar.update_life(vida)  # Sincronizar barra al inicio
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):

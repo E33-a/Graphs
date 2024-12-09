@@ -21,11 +21,11 @@ func _on_btn_volume_pressed() -> void:
 	select_audio.play()
 	await get_tree().create_timer(0.5).timeout
 
-func _on_btn_resolution_pressed() -> void:
-	select_audio.play()
-	await get_tree().create_timer(0.5).timeout
-
 func _on_btn_back_pressed() -> void:
 	select_audio.play()
 	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://Scenes/Other_scenes/start_menu.tscn")
+
+func _on_btn_select_level_pressed() -> void:
+	select_audio.play()
+	await get_tree().create_timer(0.5).timeout

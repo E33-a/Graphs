@@ -21,6 +21,7 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	$Dialogue/next.visible = end_dialog
+	$Dialogue/TextureRect/Label.visible = end_dialog
 	if revealing_text:
 		timer += delta  # Acumulamos tiempo
 		if timer >= reveal_speed:
