@@ -1,4 +1,4 @@
-[gd_scene load_steps=135 format=4 uid="uid://1xg23wof3hv1"]
+[gd_scene load_steps=137 format=4 uid="uid://1xg23wof3hv1"]
 
 [ext_resource type="Script" path="res://Scripts/Maps_levels/map_03.gd" id="1_tmmq8"]
 [ext_resource type="Texture2D" uid="uid://b4vvvj7fptftk" path="res://Map/3er map/tot.png" id="2_yysbi"]
@@ -52,13 +52,15 @@
 [ext_resource type="PackedScene" uid="uid://bojax2n41vaj6" path="res://Scenes/Maps_scenes/torch.tscn" id="50_l1wdg"]
 [ext_resource type="Texture2D" uid="uid://dl53xq3du2k7u" path="res://Map/3er map/Totem2.png" id="51_vh4hc"]
 [ext_resource type="Texture2D" uid="uid://c52yqcg0uxsa0" path="res://Map/3er map/Totem2_edit.png" id="52_ddb17"]
+[ext_resource type="PackedScene" uid="uid://buhi11facoaxd" path="res://Scenes/Characters/ankor_speaker.tscn" id="53_24fqm"]
 [ext_resource type="PackedScene" uid="uid://c7jjs3b6jhx1b" path="res://Scenes/Characters/eirion.tscn" id="53_a60cm"]
-[ext_resource type="PackedScene" uid="uid://g08pvvokerf6" path="res://Scenes/Characters/ankor.tscn" id="54_qxxwt"]
 [ext_resource type="AudioStream" uid="uid://cq401521ir0br" path="res://Resources/Sounds/epic4.wav" id="54_svqge"]
 [ext_resource type="PackedScene" uid="uid://bgn8ucr8o1h83" path="res://Scenes/Characters/spawn_enemy_2.tscn" id="55_0yjit"]
 [ext_resource type="PackedScene" uid="uid://87s4gcbf8g24" path="res://Scenes/Other_scenes/pause.tscn" id="55_qdb33"]
 [ext_resource type="PackedScene" uid="uid://c55syvelvlqei" path="res://Scenes/Characters/spawn_enemy.tscn" id="56_mi026"]
 [ext_resource type="PackedScene" uid="uid://wkyv2jvyhyiw" path="res://Scenes/Other_scenes/dead.tscn" id="56_x07c1"]
+[ext_resource type="PackedScene" uid="uid://d051olebw5rht" path="res://Scenes/Other_scenes/portal_next_level.tscn" id="57_ou1af"]
+[ext_resource type="PackedScene" uid="uid://dlwv67rbwl087" path="res://Scenes/Other_scenes/dialogue.tscn" id="58_ayjdk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w72wu"]
 texture = ExtResource("2_yysbi")
@@ -1008,6 +1010,18 @@ script = ExtResource("48_byvnh")
 [node name="map" type="Node2D" parent="."]
 y_sort_enabled = true
 
+[node name="Marker2D" type="Marker2D" parent="map"]
+position = Vector2(694, -2)
+
+[node name="Marker_target" type="Marker2D" parent="map"]
+position = Vector2(691, 289)
+
+[node name="Marker2D2" type="Marker2D" parent="map"]
+position = Vector2(697, 132)
+
+[node name="MarkerPortal" type="Marker2D" parent="map"]
+position = Vector2(694, 330)
+
 [node name="animation" type="Node2D" parent="map"]
 position = Vector2(135, 0)
 script = ExtResource("49_xsire")
@@ -1064,13 +1078,12 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAArAAQADQAAAAAAAAA2AAUADAAEAIgAAAAgAAUADAAEAIgAAAAOAAgACgADAAEAAABCAAYACgADAAEAAABQAA0ACgADAAEAAAAVAAQACgAMAAEAAAAAAAsACgAMAAEAAABKAAYACgASAAEAAAAWABAACgADAAoAAAA7AA4ACgADAAoAAAAbAA4ACgADAAoAAABWABIACgAMAAkAAABUACIACgAMAAkAAABZAB0ACgASAAkAAAABACMACgAMAAkAAAAEACUACgAMAAkAAAAMAA4ACgAJAA8AAAASAAwACgAJAA8AAABDAA0ACgAJAA8AAABYAAgACgAJAA8AAABNACcACgAAABIAAAA8ACcACgAAABIAAAA1ACgACgAAABIAAAApACgACgAPABIAAAAkACgACgAPABIAAABXAAwACQAAABoAAABYACYACQAaABYAAABJABwADAAMAAQAAAA/AB0ADAAMAAQAAAA2AB8ADAAMAAQAAAAjABUADAAMAAQAAAASAB4ADAAOAAQAAAAWABoADAAOAAQAAAAOAB0ADAAOAAQAAAAIABgADAAOAAQAAAAOAA8ADAAOAAQAAAAWAAsADAAOAAQAAAAaAAcADAAOAAQAAAAtAA4ADAAOAAQAAAA5AAwADAAOAAQAAAA8AAgADAAOAAQAAAAIACYADAAAAAYAAABVAAgADAAOAAgAAAATACIADAAAAAYAAAAQAB0ADAAAAAYAAAAcACkACgAhABIAAAAIACcACgASAAEAAABUAAUADgADAAAAAAALABQADAAIAAAAAABSABAADAAIAAAAAABWABkADAAIAAQAAAA7ABwADAAOAAQAAAA4ABcADAAOAAQAAABCABkADAAOAAQAAAA8AB8ADAAOAAQAAAA1ACIADAAOAAQAAAAmAB4ADAAOAAQAAAAkACEADAAOAAQAAAAeABkADAAOAAQAAAAiABYADAAOAAQAAAAZACEADAAOAAQAAAAbABcADAAOAAQAAAAiABMADAAOAAQAAABGABcADAAMAAQAAABDABEADAAMAAQAAAA7ABsADAAMAAQAAAA7ACEADAAMAAQAAAAzAB8ADAAMAAQAAAAzABoADAAMAAQAAAAvAB4ADAAMAAQAAAAvACEADAAMAAQAAAAtACEADAAOAAQAAAApAB4ADAAOAAQAAAAnAB4ADAAMAAQAAAAnACIADAAMAAQAAAApACIADAAMAAQAAAAsACQADAAMAAQAAAAuACUADAAMAAQAAAAxACYADAAMAAQAAAAiACIADAAMAAQAAAALABgADAAIABYAAABUAAoAHAAAAAAAAABTAA0AHAAAAAAAAAAJABIAHAAAAAAAAAAIABYAHAAAAAAAAAAfACEADAAOAAQAAAAOACgACgAJABIAAAACABkACgASAAkAAABTABcADAAKAAQAAABPABUADAAIAEgAAABPACIADAAIAAAAAABGACgADAAGAAQAAABFACgACgASAAEAAABKABIADAAMAJ4AAAAHAAwACgAMAAEAAAAEABAACgAAAAMAAAAfAB8ACgAPABIAAABFABoACgASAAkAAAA0ACEACgAhAAAAAABAACcACgAhAAAAAAAvACcACgAhAAAAAAAnACYACgAkAAAAAAAXACcACgAkAAAAAAATACUACgAJABIAAABVACgADAAIABYAAAA=")
 tile_set = SubResource("TileSet_rjnsd")
 
+[node name="Ankor_speaker" parent="map" instance=ExtResource("53_24fqm")]
+position = Vector2(698, 72)
+
 [node name="player" parent="map" instance=ExtResource("53_a60cm")]
 y_sort_enabled = true
-position = Vector2(684, 495)
-
-[node name="Ankor" parent="map" instance=ExtResource("54_qxxwt")]
-y_sort_enabled = true
-position = Vector2(695, 166)
+position = Vector2(692, 385)
 
 [node name="spawn_enemy_2" parent="map" instance=ExtResource("55_0yjit")]
 y_sort_enabled = true
@@ -1088,10 +1101,18 @@ position = Vector2(1353, 126)
 y_sort_enabled = true
 position = Vector2(1101, 66)
 
+[node name="portal" parent="map" instance=ExtResource("57_ou1af")]
+position = Vector2(692, -54)
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("54_svqge")
 volume_db = -7.0
 
-[node name="Pause" parent="." instance=ExtResource("55_qdb33")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Dialogue" parent="CanvasLayer" instance=ExtResource("58_ayjdk")]
+visible = false
 
 [node name="Failure" parent="." instance=ExtResource("56_x07c1")]
+
+[node name="Pause" parent="." instance=ExtResource("55_qdb33")]

@@ -6,7 +6,7 @@ class_name portal extends Area2D
 var player_is_in_area:bool = false
 
 func change_scene(path:String) -> void:
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.0).timeout
 	get_tree().change_scene_to_file(path)
 
 func _on_body_entered(body: Node2D) -> void:

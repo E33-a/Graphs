@@ -1,7 +1,7 @@
 class_name enemy_abstract extends CharacterBody2D
 
 @onready var animations = $AnimatedSprite2D
-@export var attack_range:float = 20.0 #rango de ataque
+@export var attack_range:float = 15.0 #rango de ataque
 @export var SPEED = 100.0
 @export var vida:float = 100.0
 @export var damage:float = 10.0

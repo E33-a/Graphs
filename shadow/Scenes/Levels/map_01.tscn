@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://dijfhdkyrw6gg"]
+[gd_scene load_steps=39 format=4 uid="uid://dijfhdkyrw6gg"]
 
 [ext_resource type="Script" path="res://Scripts/Maps_levels/map_01.gd" id="1_2hpk3"]
 [ext_resource type="Texture2D" uid="uid://ut6cq0mmn52f" path="res://Map/tileset_bosque_expansion_rtp___rpg_maker_xp_by_mataraelfay_d5dn3fn.png" id="2_0dcce"]
@@ -380,8 +380,6 @@ texture = ExtResource("8_38exc")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7s2rl")
 
-[sub_resource type="LabelSettings" id="LabelSettings_w6uru"]
-
 [node name="Map" type="Node2D" groups=["maps"]]
 position = Vector2(-5, -6)
 script = ExtResource("1_2hpk3")
@@ -573,14 +571,6 @@ volume_db = -7.0
 [node name="Dialogue" parent="CanvasLayer" instance=ExtResource("23_osrbt")]
 visible = false
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 9.0
-offset_top = 7.0
-offset_right = 49.0
-offset_bottom = 30.0
-label_settings = SubResource("LabelSettings_w6uru")
-vertical_alignment = 1
+[node name="Failure" parent="." instance=ExtResource("26_8iq4h")]
 
-[node name="Pause" parent="CanvasLayer" instance=ExtResource("25_6amo3")]
-
-[node name="Failure" parent="CanvasLayer" instance=ExtResource("26_8iq4h")]
+[node name="Pause" parent="." instance=ExtResource("25_6amo3")]

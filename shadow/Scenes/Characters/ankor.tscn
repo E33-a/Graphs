@@ -419,7 +419,7 @@ offset_bottom = -6.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_betmy")
 animation = &"attack"
-frame_progress = 0.360702
+frame_progress = 0.581962
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 41)

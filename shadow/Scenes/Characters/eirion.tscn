@@ -345,7 +345,7 @@ stereo = true
 position = Vector2(706, 294)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_86h0n")
-damage = 40.0
+damage = 100.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 44)

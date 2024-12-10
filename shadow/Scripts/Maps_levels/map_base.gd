@@ -1,7 +1,7 @@
 class_name map_base extends Node2D
 
 @onready var audio:AudioStreamPlayer = $AudioStreamPlayer
-@onready var failure = $CanvasLayer/Failure
+@onready var failure = $Failure
 
 var player:CharacterBody2D = null
 
@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 		camera.zoom = Vector2(2.3, 2.3)
 		camera.offset = Vector2.ZERO
 		get_tree().paused = true
-		$Failure.visible = true
+		failure.visible = true
 
 func check_enemies() -> void:
 	# Obtén todos los nodos en el grupo "enemies"

@@ -4,6 +4,8 @@ extends map_base
 @onready var marker:Marker2D = $map/Marker2D
 @onready var dialogue = $CanvasLayer/Dialogue
 
+@onready var lackey_real = preload("res://Scenes/Characters/enemy_lackey.tscn")
+
 var dialog = [
 	"Lackey: Veo que has logrado defender a Toria, ¡AHAHAHA! Pero dime, ¿realmente crees que las fuerzas de mi amo Ankor terminan aquí? Tu mundo se hundirá en la penumbra de nuestra maldad, y no quedará rastro de tu luz.",
 	"Eirion: Guarda tu hedionda boca, criatura de las sombras. Mientras una chispa de esperanza arda en los corazones de los hombres, no caeremos. Te juro que acabaré contigo y con tu amo, como el agua extingue al fuego. No habrá piedad para ninguno de ustedes.",
@@ -29,9 +31,14 @@ func _physics_process(delta: float) -> void:
 			lackey_speaker.go_out(marker.position)
 			if lackey_speaker.global_position.distance_to(marker.position) < 5:
 				lackey_speaker.queue_free()
+				var enemy_lackey_real = lackey_real.instantiate() 
+				enemy_lackey_real.position = Vector2(marker.position)
+				$map.add_child(enemy_lackey_real)
 				active_spawn = true
-	#$map/spawn_enemy_2.spawn()
-	#$map/spawn_enemy_3.spawn()
-	#$map/spawn_enemy_4.spawn()
-	#$map/spawn_enemy_5.spawn()
+	if active_spawn:
+		$map/spawn_enemy_2.spawn()
+		$map/spawn_enemy_3.spawn()
+		$map/spawn_enemy_4.spawn()
+		$map/spawn_enemy_5.spawn()
+		
 		

@@ -1,14 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dlwv67rbwl087"]
+[gd_scene load_steps=10 format=3 uid="uid://c8iicdr503xrd"]
 
-[ext_resource type="Script" path="res://Scripts/Menus/dialogue.gd" id="1_n7ncv"]
-[ext_resource type="Script" path="res://Scripts/Menus/rich_text_label.gd" id="2_i8vk8"]
-[ext_resource type="FontFile" uid="uid://ba5nedvamrdic" path="res://Fonts/MedievalSharp-Bold.ttf" id="2_t2bls"]
+[ext_resource type="Script" path="res://Scripts/Menus/dialogue.gd" id="1_8f385"]
+[ext_resource type="FontFile" uid="uid://ba5nedvamrdic" path="res://Fonts/MedievalSharp-Bold.ttf" id="2_3he61"]
+[ext_resource type="Script" path="res://Scripts/Menus/rich_text_label.gd" id="3_3igbg"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6ssh6"]
 load_path = "res://.godot/imported/parchmen.jpg-305fdbbd48491a7fb6f2f39423cfb5cc.ctex"
 
 [sub_resource type="LabelSettings" id="LabelSettings_6f6bn"]
-font = ExtResource("2_t2bls")
+font = ExtResource("2_3he61")
 font_size = 12
 font_color = Color(0, 0, 0, 0.811765)
 
@@ -64,14 +64,14 @@ _data = {
 "next": SubResource("Animation_teb18")
 }
 
-[node name="Control" type="Control"]
+[node name="message_final" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_n7ncv")
+script = ExtResource("1_8f385")
 
 [node name="Dialogue" type="Control" parent="."]
 layout_mode = 1
@@ -106,9 +106,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -115.0
-offset_top = -23.8089
+offset_top = -23.6427
 offset_right = 148.0
-offset_bottom = -0.808853
+offset_bottom = -0.6427
 grow_horizontal = 2
 grow_vertical = 0
 text = "Presiona espacio para continuar..."
@@ -134,7 +134,7 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 21
 bbcode_enabled = true
 text = "Hola como te va"
-script = ExtResource("2_i8vk8")
+script = ExtResource("3_3igbg")
 
 [node name="next" type="TextureRect" parent="Dialogue"]
 layout_mode = 1
@@ -144,9 +144,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -52.0
-offset_top = -50.8139
+offset_top = -50.4785
 offset_right = -9.0
-offset_bottom = -7.81387
+offset_bottom = -7.4785
 grow_horizontal = 0
 grow_vertical = 0
 texture = SubResource("CompressedTexture2D_fhxmp")

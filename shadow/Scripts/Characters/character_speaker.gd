@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 		velocity = direction * SPEED
 
 		# Si se alcanza el destino, detener el movimiento
-		if global_position.distance_to(target_position) < 5:
+		if global_position.distance_to(target_position) < 6:
 			canMove = false
 			speak = true
 			is_attacking = true
@@ -40,7 +40,11 @@ func _process(delta: float) -> void:
 
 	# Control de otras animaciones
 	if velocity != Vector2.ZERO:
-		if animations.animation != "run":  # Cambia a "run" si no está ya
+		if velocity.x > 0:
+			animations.flip_h = false
+		elif velocity.x < 0:
+			animations.flip_h = true
+		if animations.animation != "run": 
 			animations.play("run")
 	elif velocity == Vector2.ZERO and not speak:
 		if animations.animation != "idle":  # Cambia a "idle" si no está ya

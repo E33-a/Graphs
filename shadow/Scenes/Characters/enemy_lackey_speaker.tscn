@@ -466,13 +466,12 @@ shape = SubResource("RectangleShape2D_uqjsw")
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_rfca2")
 animation = &"base"
-frame_progress = 0.293301
+frame_progress = 0.471997
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_gqabv")
-volume_db = -20.0
+volume_db = -9.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -38,4 +38,5 @@ func _on_h_slider_value_changed(value: float) -> void:
 	update_label(value)
 	
 func update_label(value):
+	value += 100
 	indicator.text = "Volumen: %.1f" % value
